@@ -26,7 +26,8 @@ oder die ihr nach der Korrektur überarbeitet habt.
 ## Fehlende Lösungen
 
 * Serie 01, Aufgaben 1 und 2.
-* Serie 02, Aufgaben 3 und 4. (Ev. kann ich ein paar Schönheitsfehler in meiner Lösung noch ausbügeln.)
+* Serie 02, Aufgaben 3 und 4.
+* Serie 04, Aufgabe 3.
 
 ## Lösungen beitragen
 Dazu könnt ihr einen pull request generieren oder sonst
