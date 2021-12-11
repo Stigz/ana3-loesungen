@@ -13,6 +13,7 @@ auch noch den Quellencode hochladen.
 * Serie 04, Aufgabe 3.
 * Serie 07, Aufgabe 1(b).
 * Serie 08, Aufgabe 1(c).
+* Serie 11, Aufgabe 1(b), ein Schritt in Aufgabe 3 und ganz Aufgabe 4.
 
 ## Lösungen beitragen
 Dazu könnt ihr einen pull request generieren oder sonst
