@@ -16,11 +16,6 @@ auch noch den Quellencode hochladen.
 * Serie 11, Aufgabe 1(b), ein Schritt in Aufgabe 3 und ganz Aufgabe 4.
 
 ## Lösungen beitragen
-Dazu könnt ihr einen pull request generieren oder sonst
-teilt ihr eure korrigierten Lösungen im WhatsApp-Chat
-und dann lade ich sie hier hoch.
-
-## Bei Fragen oder Problemen
-Schreibt mir im WhatsApp-Chat, 
-quatscht mich während der Pause in einer Vorlesung an,
-oder schreibt mir eine Mail :)
+Ich habe mich von der Ana3-Prüfung abgemeldet und werde dieses
+Projekt nicht mehr verwalten. Am besten clonet jemand es, sodass
+er/sie die Verwaltung übernehmen kann.
