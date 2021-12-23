@@ -1,0 +1,323 @@
+\documentclass[10pt]{article}
+
+\title{Serie 7}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+\usepackage[normalem]{ulem}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Beweis}
+\newtheorem*{lemma}{Lemma}
+
+
+\author{}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+\uline{Bemerkung:} Meine Lösung für 1(b) stimmte nicht ganz,
+weshalb ich sie hier auslasse.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 1}
+Es seien $(X, \mathfrak{M}, \mu)$ ein Massraum
+und $f, f_n, n \in \N$ messbare Abbildungen $X \to \R$.
+Man sagt, \textit{$(f_n)_{n \in \N}$ konvergiert im Mass}
+gegen $f$, wenn für alle $\delta > 0$
+\[
+  \lim_{n \to \infty} \mu(\{x \in X : |f_n(x) - f(x)| 
+    \geq \delta \}) = 0.
+\]
+Beweise:
+\begin{enumerate}[(a)]
+  \item Falls $(f_n)_{n \in \N}$ gegen $f$ im Mass konvergiert,
+        dann gibt es eine Teilfolge von $(f_n)_{n \in \N}$,
+        die fast überall gegen $f$ konvergiert.
+  \begin{proof}
+    $(f_n)_{n\in \N}$ konvergiert im Mass gegen $f$.
+    Also existiert für alle $k \in \N_{\geq 1}$
+    ein $n_k \in \N$, sodass für alle $n \geq n_k$ gilt: 
+    \[
+      \mu\bigg(\bigg\{x \in X : \underbrace{|f_n(x) - f(x)|}_{=: g_n(x)} \geq \frac{1}{k}\bigg\}\bigg) < \frac{1}{2^k}.
+    \]
+    Folglich finden wir $n_1 < n_2 < n_3 < \dots$, sodass
+    \[
+      \mu\bigg(\underbrace{\bigg\{x \in X : g_{n_k}(x) \geq \frac{1}{k}\bigg\}}_{=: A_k}\bigg) < \frac{1}{2^k}.
+    \]
+    Definiere
+    \[
+      \bigcap_{\ell \geq 1}\bigcup_{k \geq \ell} A_k =: A.
+    \]
+    Dann
+    \begin{align*}
+      \mu(A) 
+      &= \mu\left(\lim_{\ell \to \infty} \bigcup_{k \geq \ell} A_k\right)
+      = \lim_{\ell \to \infty} \mu\left(\bigcup_{k \geq \ell} A_k\right) \\
+      &\leq \lim_{\ell \to \infty} \sum_{k = \ell}^{\infty} \mu(A_k)
+      \leq \lim_{\ell \to \infty} \frac{1}{2^{\ell}}\underbrace{\sum_{j = 0}^{\infty} \frac{1}{2^j}}_{= 2} \\
+      &= \lim_{\ell \to \infty}  \frac{1}{2^{\ell - 1}}
+      = 0.
+    \end{align*}
+    
+    $x \in A$ heisst: $\forall \ell \in \N_{\geq 1} \exists k \geq \ell: g_{n_k}(x) \geq 1/k$.
+    
+    Also heisst $x \in A^c$: $\exists \ell \in \N_{\geq 1} \forall k \geq \ell: g_{n_k}(x) < 1/k$.
+    
+    Also gilt für alle $x \in A^c$: $g_{n_k}(x) \to 0, k \to \infty$.
+    
+    Also $f_{n_k} \to f$ fast überall, $k \to \infty$.
+  \end{proof}
+
+  \item Falls $\mu(X) < \infty$, dann sind äquivalent:
+  \begin{enumerate}[(i)]
+    \item $(f_n)_{n \in \N}$ konvergiert im Mass gegen $f$.
+
+    \item Jede Teilfolge von $(f_n)_{n \in \N}$ hat eine
+          Teilfolge, die fast überall gegen $f$ konvergiert.
+  \end{enumerate}
+
+  \textit{Lösung fehlt.}
+  % \begin{proof}
+  %   \uline{$(i) \Rightarrow (ii)$:}
+  %   Wenn $(f_n)_{n \in \N}$ im Mass gegen $f$ konvergiert,
+  %   dann auch jede Teilfolge $(f_{n_k})_{k \in \N}$. 
+  %   Aus Teil (a) folgt, dass $(f_{n_k})_{k \in \N}$ eine
+  %   Teilfolge hat, die fast überall gegen $f$ konvergiert.
+  %   
+  %   \uline{$(ii) \Rightarrow (i)$:}
+  %   Nimm an, $(f_n)$ konvergiert nicht im Mass gegen $f$.
+  %   Dann existiert eine Teilfolge $(f_{n_k}) \subset (f_n)$,
+  %   sodass es $\delta, \varepsilon > 0$ gibt und für alle $n_k \in \N$
+  %   \[
+  %     \mu\big(\{|f_{n_k}(x) - f(x)| \geq \delta\}\big) > \varepsilon
+  %   \]
+  %   gilt.
+  %   Nach Annahme existiert eine Teil-Teilfolge
+  %   $(f_{n_{k_{\ell}}}) \subset (f_{n_k})$, die fast überall
+  %   gegen $f$ konvergiert.
+  %   
+  %   Im Falle $\mu(X) < \infty$ folgt,\marginnote{Ich verwende
+  %   hierbei den folgenden Hilfsatz, dessen Beweis mir entgeht:
+  %   \begin{lemma}
+  %   Falls $\mu(X) < \infty$ und $f_n \to f$ fast überall, $n \to \infty$, dann $f_n \to f$ im Mass, $n \to \infty$.
+  %   \end{lemma}} dass
+  %   $(f_{n_{k_{\ell}}}) \to f$ im Mass, $\ell \to \infty$.
+  %   Also existieren doch $n_k \in \N$,
+  %   für die
+  %   \[
+  %      \mu\big(\{|f_{n_k}(x) - f(x)| \geq \delta\}\big) \leq \varepsilon
+  %   \]
+  %   gilt. Widerspruch.
+  % \end{proof}
+  % 
+  
+  Die Äquivalenz gilt nicht, falls $\mu(X) < \infty$
+  nicht vorausgesetzt ist.
+
+  \paragraph{Beispiel.} Definiere für alle $n \in \N$
+  \begin{align*}
+    f_n : \R &\to \R,\\
+          x &\mapsto \begin{cases}
+            1, &x > n, \\
+            0, &x \leq n.
+          \end{cases}
+  \end{align*}
+  Die Funktionenfolge konvergiert punktweise 
+  gegen die Nullfunktion. Aber für jedes Folgenglied
+  gilt mit $\delta = 1/2$:
+  \[
+    m(\{x \in \R : |f_n(x)| \geq 1/2\}) = m((n, \infty)) = \infty.
+  \]
+  Also konvergiert die Folge im Mass nicht zur Nullfunktion. 
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 2}
+Es sei $\alpha \in \R$.
+Zeige, dass folgende Funktion Lebesgue-messbar ist:
+\begin{align*}
+  f:    (-1, 1)   &\to        \R,\\
+        x         &\mapsto
+        \begin{cases}
+          x^{-1},  & x \in (-1,1)\setminus\{0\},\\
+          \alpha,  & x = 0.
+        \end{cases}
+\end{align*}
+\begin{proof}
+  \uline{Fall 1:} Sei $U \subset \R$ offen mit $\alpha \notin U$.
+  Dann ist $f^{-1}(U)$ offen, da $f$ auf $(-1,1) \setminus \{0\}$
+  stetig ist.
+  Dann $f^{-1}(U) \in \mathfrak{B}$.
+  Also ist $f^{-1}(U)$ eine Lebesgue-messbare Menge.
+  
+  \uline{Fall 2:} Sei $\alpha \in U \subset \R$, $U$ offen.
+  Dann ist auch $U \setminus \{\alpha\} = U \cap (\R\setminus\{\alpha\})$ offen.
+  Also
+  \[
+    f^{-1}(U) = \underbrace{f^{-1}(U \setminus \{\alpha\})}_{\textrm{offen}} \sqcup \underbrace{f^{-1}(\{\alpha\}).}_{\substack{\textrm{höchstens zwei Punkte,}\\\textrm{also abgeschlossen}}}
+  \]
+  Offene und abgeschlossene Mengen sind Borelmengen. Ihre Vereinigung auch.
+  Also ist $f^{-1}(U)$ eine Lebesgue-messbar Menge.
+  
+  Also ist $f$ Lebesgue-messbar.
+\end{proof}
+
+Ist $f$ Lebesgue-integrierbar?
+
+\paragraph{Antwort.} Für $[a,b] \subset (-1,1)$ stimmen
+das Lebesgue- und das Riemann-Integral überein.
+Da $\{0\}, \{1\}$ Nullmengen sind, gilt
+\begin{align*}
+ \int_{(-1,1)} |f| \df m 
+ &= 2 \lim_{t \to 0^+} \int_{t}^{1} x^{-1} \df x \\
+ &= 2 \lim_{t \to 0^+} (\ln(x))|_t^{1} \\
+ &= \infty.
+\end{align*}
+Somit gilt $f \notin L_1((-1,1))$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 3}
+Es seien $X = [0,1]$ und
+$m$ das Lebesgue-Mass auf $X$.
+Beweise, dass die Folge $(f_n)_{n \in \N}$
+definiert durch
+\[
+  f_n := \chi_{\left[\frac{j}{2^k}, \frac{j+1}{2^k}\right]},
+\]
+$n = 2^k + j, j \in \{0, 1, \dots, 2^k - 1\}, k \in \N$,
+im Mass konvergiert, aber für kein $x \in X$ die Folge
+$(f_n(x))_{n \in \N}$ konvergiert.
+
+\begin{proof}
+\uline{Für kein $x \in X$ konvergiert $(f_n(x))_{n \in \N}$:}
+Seien $x \in X, k \in \N_{\geq 2}$.
+Dann existieren $i,j \in \{0,1,\dots,2^k-1\}$,
+sodass $x \in [i/2^k, (i+1)/2^k]$, $x \notin [j/2^k, (j+1)/2^k]$.
+Also hat die Folge $(f_n(x))_{n \in \N}$ zwei Häufungspunkte (0 und 1).
+Also konvergiert sie nicht.
+
+\uline{$(f_n)_{n \in \N}$ konvergiert im Mass:}
+Da $f_n(x) > 0$ genau dann, wenn ein $j \in \{0, 1, \dots, 2^k-1\}$
+existiert mit $x \in [j/2^k, (j+1)/2^k]$, gilt
+\begin{align*}
+  \lim_{n \to \infty} m(\{x \in [0,1] : f_n(x) > 0\})
+  &= \lim_{n \to \infty} m(\left[\frac{j}{2^k},\frac{j+1}{2^k}\right]) \\
+  &= \lim_{n \to \infty} \frac{1}{2^k} \\
+  &= 2 \lim_{n \to \infty} \frac{1}{2^{k+1}}.
+\end{align*}
+Da $n = 2^k + j \leq 2^{k+1}$:
+\begin{align*}
+  0 \leq \lim_{n \to \infty} \frac{1}{2^{k+1}}
+  \leq \lim_{n \to \infty} \frac{1}{2^{n}}
+  = 0.
+\end{align*}
+Folglich konvergiert $(f_n)_{n \in \N}$ im Mass, und zwar gegen die Nullfunktion.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 4}
+Es seien $\mathfrak{M}$ die $\sigma$-Algebra
+der Lebesgue-messbaren Mengen in $\R$ und $m$
+das Lebesgue-Mass. Zeige, dass zu jedem
+$A \in \mathfrak{M}$ mit $m(A) > 0$ ein
+$B \in \mathfrak{M}$ existiert mit
+\[
+  B \subset A, ~~ m(A \setminus B) > 0, ~~ m(B) > 0.
+\]
+Man sagt daher ``Das Lebesgue-Mass hat keine Atome.''
+\begin{proof}
+Wegen Satz 5.3 existieren abgeschlossene $A_i \subset A$
+mit $m(\bigcup_{i = 1}^{\infty} A_i) = m(A)$.
+Für mindestens ein $i \in \N$ gilt $0 < m(A_i) =: c$.
+Definiere nun für alle $z \in \Z$
+\[
+  B_z = \left[\frac{z}{2}c, \frac{z+1}{2}c\right].
+\]
+Dann $m(B_z) = c/2$.
+Die $B_z$ sind abgeschlossen, also Borelmengen.
+Also $A_i \cap B_z \in \mathfrak{B} \subset \mathfrak{M}$ für alle $z \in Z$.
+Da $A_i = A_i \cap \bigcup_{z \in \Z} B_z$,
+müssen $z, z' \in \Z, z \neq z',$ bestehen mit
+\[
+  c/2 \geq m(A_i \cap B_z) > 0,~~ c/2 \geq m(A_i \cap B_{z'}) > 0.
+\]
+Definiere $B := A_i \cap B_z$. Dann $B \subset A_i \subset A$,
+$0 < m(B) < m(A)/2$. Folglich $m(A\setminus B) > m(A)/2$.
+\end{proof}
+
+\end{document}

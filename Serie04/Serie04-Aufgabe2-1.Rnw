@@ -1,0 +1,168 @@
+\documentclass[10pt]{article}
+
+\title{Serie 4, Aufgabe 2}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Proof}
+\newtheorem*{lemma}{Lemma}
+
+
+% \author{Jan Vanhove\\10-219-186}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let $(X, \mathfrak{M}, \mu)$ be a measure space
+and $f : X \to Y$ a map.
+Define
+\[
+  \mathfrak{N} := \{A \subset Y : f^{-1}(A) \in \mathfrak{M}\},~~~
+  \nu(A) := \mu(f^{-1}(A)), A \in \mathfrak{N}.
+\]
+Show that $(Y, \mathfrak{N}, \nu)$ is a measure space.
+Find all $\mathfrak{N}$-measurable maps $g: Y \to \C$
+and show that 
+\[
+  \int_Y g \df \nu = \int_X g \circ f \df \mu,
+\]
+if either side exists.
+
+\begin{proof}
+$\mathfrak{N}$ is a $\sigma$-algebra (Def.~1.3):
+\begin{enumerate}[(i)]
+  \item $f^{-1}(Y) = X \in \mathfrak{M} \Rightarrow Y \in \mathfrak{N}$.
+
+  \item $A \in \mathfrak{N} \Rightarrow f^{-1}(A) \in \mathfrak{M} \Rightarrow  (f^{-1}(A))^c = f^{-1}(A^c) \in \mathfrak{M} \Rightarrow A^C \in \mathfrak{N}$.
+
+  \item $A_i \in \mathfrak{N}, i \in \N \Rightarrow f^{-1}(A_i) \in \mathfrak{M}, i \in \N \Rightarrow \bigcup_{n = 1}^{\infty} f^{-1}(A_i) = f^{-1}(\bigcup_{n = 1}^{\infty} A_i) \in \mathfrak{M} \Rightarrow \bigcup_{n = 1}^{\infty} A_i \in \mathfrak{N}$.
+\end{enumerate}
+
+$\nu$ is a measure on $\mathfrak{N}$ (Def.~2.1):
+\begin{enumerate}[(i)]
+  \item Let $A_1, A_2, \dots \in \mathfrak{N}$ be disjoint.
+  Then $f^{-1}(A_1), f^{-1}(A_2), \dots \in \mathfrak{M}$ are
+  also disjoint. Hence:
+  \[
+    \nu \left(\bigcup_{i = 1}^{\infty}A_i\right)
+    = \mu \left(f^{-1}\left(\bigcup_{i = 1}^{\infty}A_i\right)\right)
+    = \mu\left(\bigcup_{i = 1}^{\infty} f^{-1}(A_i)\right) 
+    = \sum_{i=1}^{\infty}\mu(f^{-1}(A_i)) 
+    = \sum_{i=1}^{\infty}\nu(A_i).
+  \]
+  
+  \item $f^{-1}(\emptyset_Y) = \emptyset_X \in \mathfrak{M}.$ $\mu(\emptyset_X) = 0$. Hence $\nu(\emptyset_Y) = 0 < \infty$.
+\end{enumerate}
+
+Let $V \in \C$ be open. Then
+\begin{align*}
+  \textrm{$g : Y \to \C$ is measurable}
+  &\Leftrightarrow g^{-1}(V) \in \mathfrak{N} \\
+  &\Leftrightarrow f^{-1}(g^{-1})(V) = (g\circ f)^{-1}(V) \in \mathfrak{M}.
+\end{align*}
+So $g : Y \to \C$ is measurable iff $g \circ f : X \to \C$ is measurable.
+
+If $\int_Y g \df \nu$ exists, then
+\[
+  \int_Y g \df \nu = 
+  \int_Y (\textrm{Re}~ g)^+ \df \nu
+  -  \int_Y (\textrm{Re}~ g)^- \df \nu
+  + \textrm{i}\left(\int_Y (\textrm{Im}~ g)^+ \df \nu 
+  -  \int_Y (\textrm{Im}~ g)^- \df \nu\right).
+\]
+Now consider a simple measurable $s$ with 
+$0 \leq s \leq \textrm{Re}(g)^+$,
+$s = \sum_{i = 1}^n \alpha_i \chi_{A_i}$,
+$\alpha_i \in \R^+, A_i \in \mathfrak{N}$.
+Then $0 \leq s \circ f \leq \textrm{Re}(g \circ f)^+$
+is also simple and measurable.
+Since $\chi_{f^{-1}(A)} = \chi_A \circ f$:
+\begin{align*}
+  \int_Y s \df \nu
+  = \int_{Y} \sum_{i = 1}^n \alpha_i \nu(A_i)
+  &= \sum_{i = 1}^n \alpha_i \mu(f^{-1}(A_i)) \\
+  &= \int_{f^{-1}(Y)} \sum_{i = 1}^n \alpha_i \chi_{f^{-1}(A_i)} \df \mu \\
+  &= \int_{X} \sum_{i = 1}^n \alpha_i \chi_{A_i} \circ f \df \mu \\
+  &= \int_{X} s \circ f \df \mu.
+\end{align*}
+From this, $\int_Y (\textrm{Re}~ g)^+ \df \nu \leq \int_X (\textrm{Re}~ g \circ f)^+ \df \mu$.
+Since $Y \supset f(X)$, `$\geq$' holds, too.
+Hence $\int_Y (\textrm{Re}~ g)^+ \df \nu = \int_X (\textrm{Re}~ g \circ f)^+ \df \mu$.
+Proceed analogously for the other terms that make up $\int_Y g \df \nu$.
+\end{proof}
+\end{document}

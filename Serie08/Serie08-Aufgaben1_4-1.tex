@@ -1,0 +1,362 @@
+\documentclass[10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\title{Serie 8}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+\usepackage[normalem]{ulem}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Beweis}
+\newtheorem*{lemma}{Lemma}
+
+
+\author{}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+\uline{Bemerkung:} Meine Lösung für 1(c) stimmte nicht ganz,
+weshalb ich sie hier auslasse.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Exercise 1}
+\begin{enumerate}[(a)]
+\item Show that the Dirichlet function is both Lebesgue-measurable
+and Lebesgue-integrable (i.e., $D \in \mathcal{L}_1([0,1])$)
+but not Riemann-integrable.
+  \begin{proof}
+    \uline{$D$ is Lebesgue-measurable:}
+    Let $U \subset \R$ be open.
+    If $\{0,1\} \not \subset U$, then $f^{-1}(U) = \emptyset \in \mathfrak{B}$.
+    If $\{0,1\} \subset U$, then $f^{-1}(U) = [0,1] \in \mathfrak{B}$.
+    If $0 \notin U, 1 \in U$, then $f^{-1}(U) = [0,1] \cap \Q$, viz., a countable 
+    union of closed sets, hence $f^{-1}(U) \in \mathfrak{B}$.
+    If $0 \in U, 1 \not \in U$, then $f^{-1}(U) = ([0,1] \cap \Q)^c \cap [0,1]$, which is in $\mathfrak{B}$
+    by virtue of its complement's being in $\mathfrak{B}$.
+    
+    \uline{$D$ is Lebesgue-integrable:}
+    $D$ is non-zero in a countable number of points. 
+    Countable sets have Lebesgue-measure zero.
+    Measure zero sets don't affect Lebesgue integrals.
+    So $\int_{[0,1]} D \df m = 0 < \infty$. Hence $D \in \mathcal{L}_1([0,1])$.
+    
+    \uline{$D$ isn't Riemann-integrable:}
+    Any interval in a partition of $[0,1]$ contains both rational and irrational numbers,
+    so the upper Darboux sums are always 1 and the lower ones are always 0.
+  \end{proof}
+  
+\item Show that $D$ can be made Riemann-integrable by tweaking its definition on a measure zero set.
+  \begin{proof}
+  See (a): $D = [0]$. (Equivalence class of zero function.)
+  \end{proof}
+  
+\item Is there any bounded function $f: [0,1] \to \R$ that is Lebesgue-measurable
+but not Riemann-integrable and that can't be made Riemann-integrable by tweaking its
+definition on a measure zero set?
+
+\textit{Die charakteristische Funktion einer `fetten' Cantor-Menge würde funktionieren. Google `fat Cantor set' :)}
+  % \textit{Example.} I didn't have time to flesh this out, but:
+  % \begin{enumerate}[1.]
+  %   \item Create a `fat' Cantor set $A$ with $m(A) = 1/2$.
+  %   \item Note that $\chi_A$ is discontinuous at all $x \in A$.
+  %   \item Hence, $\chi_A$ isn't Riemann-integrable.
+  %         However, its Lebesgue integral is $1/2$.
+  %   \item Then argue that $\chi_A$ isn't equivalent to 
+  %         a Riemann-integrable function either. (I reckon this would be the iffiest step.)
+  % \end{enumerate}
+\end{enumerate}
+
+\section*{Exercise 2}
+Compute the following Lebesgue integrals:
+\[
+  (a) \lim_{n \to \infty} \int_0^n \left(1 - \frac{x}{n}\right)^n e^{x/2} \df x,~~~
+  (b) \lim_{n \to \infty} \int_0^n \left(1 + \frac{x}{n}\right)^n e^{-2x} \df x.
+\]
+
+\paragraph{Solution}
+Note that 
+\[
+ \lim_{n \to \infty} \int_0^n \left(1 - \frac{x}{n}\right)^n e^{x/2} \df x = \lim_{n \to \infty} \int_0^{\infty} \underbrace{\left(1 - \frac{x}{n}\right)^n e^{x/2} \chi_{[0, n]}(x)}_{=: f_n(x)} \df x
+\]
+and
+\[
+ \lim_{n \to \infty} \int_0^n \left(1 + \frac{x}{n}\right)^n e^{-2x} \df x = \lim_{n \to \infty} \int_0^{\infty} \underbrace{\left(1 + \frac{x}{n}\right)^n e^{-2x} \chi_{[0, n]}(x)}_{=: g_n(x)} \df x.
+\]
+We will claim that the sequences $(f_n(x))_{n \in \N}, (g_n(x))_{n \in \N}$
+are both dominated by $h(x) := e^{-x/2}$ and then leverage the dominated convergence theorem.
+But first:
+
+\begin{lemma}
+For all $x > - n$, $\left(1 + \frac{x}{n}\right)^n \leq \left(1 + \frac{x}{n+1}\right)^{n+1}$.
+\end{lemma}
+\begin{proof} Using Bernoulli's inequality, we obtain:
+\begin{align*}
+  \frac{\left(1 + \frac{x}{n+1}\right)^{n+1}}{\left(1 + \frac{x}{n}\right)^n}
+  &= \left(\frac{1 + \frac{x}{n+1}}{1 + \frac{x}{n}}\right)^{n+1}\left(1 + \frac{x}{n}\right) \\
+  &= \left(\frac{(n+1+x)n}{(n+x)(n+1)}\right)^{n+1}\left(1 + \frac{x}{n}\right) \\
+  &= \left(1 - \frac{x}{(n+x)(n+1)}\right)^{n+1}\left(1 + \frac{x}{n}\right) \\
+  &\geq \left(1 - \frac{x}{n+x} \right)\left(1 + \frac{x}{n}\right) \\
+  &= 1 + \frac{(n+x)x - xn - x^2}{n(n+x)} = 1.\qedhere
+\end{align*}
+\end{proof}
+
+\uline{Claim 1: $f_n(x) \leq e^{-x/2}$:}
+For $x \in \R \setminus [0,n)$, $f_n(x) = 0$, whereas $e^{-x/2} > 0$ for all $x$.
+For $x \in [0,n)$, observe that
+\[
+ \left(1 - \frac{x}{n}\right)^n e^{x/2} \stackrel{!}{\leq} e^{-x/2}
+\]
+is equivalent to
+\[
+  \left(1 - \frac{x}{n}\right)^n \stackrel{!}{\leq} e^{-x} = \lim_{k \to \infty}\left(1 - \frac{x}{k}\right)^k.
+\]
+Since $-x > -n$, the lemma applies, so $\left(1 - \frac{x}{n}\right)^n$ increases monotonically with $n$, which proves the claim.
+
+\uline{Claim 2: $g_n(x) \leq e^{-x/2}$:}
+For $x \in \R \setminus [0,n)$, $g_n(x) = 0$, whereas $e^{-x/2} > 0$ for all $x$.
+For $x \in [0,n)$, observe that
+\[
+ \left(1 + \frac{x}{n}\right)^n e^{-2x} \stackrel{!}{\leq} e^{-x/2}
+\]
+is equivalent to
+\[
+  \left(1 + \frac{x}{n}\right)^n \stackrel{!}{\leq} e^{3x/2} = e^{x/2}\lim_{k \to \infty}\left(1 + \frac{x}{k}\right)^k.
+\]
+Since $x \geq 0 > - n$ and the lemma applies,
+and since $e^{x/2} \geq 1$ for all $x \geq 0$,
+the last inequality is indeed true.
+Hence, $e^{-x/2}$ dominates $(g_n(x))_{n \in \N}$.
+
+\uline{Claim 3: $\int_{0}^{\infty} e^{-x/2} \df x < \infty$:}
+We note that $-2e^{-x/2}$ is the antiderivative of $e^{-x/2}$,
+so 
+\[
+\int_{0}^{\infty} e^{-x/2} \df x = \lim_{t \to \infty}-2e^{-t/2} + 2 = 2 < \infty.
+\]
+
+\uline{Claim 4: $\lim_{n \to \infty} f_n(x), \lim_{n \to \infty} g_n(x)$ both exist for all $x \in \R$:}
+Specifically,
+\[
+  f_n(x) \to 
+  \begin{cases}
+  0,                          & x < 0, \\
+  e^{-x}e^{x/2} = e^{-x/2},   & x \geq 0,
+  \end{cases}, ~~~n \to \infty.
+\]
+and
+\[
+  g_n(x) \to \begin{cases}
+  0,                          & x < 0,\\
+  e^{x}e^{-2} = e^{-x},       & x \geq 0,
+  \end{cases}, ~~~n \to \infty.
+\]
+
+Hence we may apply the dominated convergence theorem, which gives us
+\[
+  \lim_{n \to \infty} \int_{0}^{\infty} f_n(x) \df x = \int_0^{\infty} e^{-x/2} \df x = 2,
+\]
+as already computed above.
+Similarly,
+\[
+  \lim_{n \to \infty} \int_{0}^{\infty} g_n(x) \df x = \int_0^{\infty} e^{-x} \df x = \lim_{t \to \infty}-e^{-t} + 1 = 1.
+\]
+
+
+\section*{Aufgabe 3}
+Es seien $f_n: [0,1] \to [0, \infty)$ stetige Funktionen
+mit $f_n(x) \to 0, n \to \infty,$ für alle $x \in [0,1]$.
+Zeige, dass für $\varphi: [0,1] \to [0, \infty], \varphi := \sup_{n \in \N} f_n$, gilt:
+\begin{enumerate}[(a)]
+  \item $\varphi$ Lebesgue-integrierbar $\Rightarrow$ $\lim_{n\to \infty} \int_0^1 f_n \df x = 0.$
+  \begin{proof}
+  Es gilt $\varphi \in \mathscr{L}_1([0,1])$, $\varphi \geq 0$, $|f_n(x)| \leq \varphi(x)$ für alle $x \in [0,1]$ und alle $n \in \N$. Weiter $\lim_{n \to \infty} f_n(x) = 0$ für alle $x \in [0,1]$. Mit Satz 3.4 (majorisierte Konvergenz) folgt:
+  \[
+    \lim_{n \to \infty} \int_{[0,1]} f_n \df m = \int_{[0,1]} 0 \df m = 0.
+  \]
+  Da $f_n$ für alle $n$ stetig und folglich Riemann-integrierbar ist, gilt
+  weiter
+  \[
+    \int_{[0,1]} f_n \df m = \int_0^1 f_n(x) \df x
+  \]
+  für alle $n \in \N$ und mithin die Behauptung.
+  \end{proof}
+  
+  \item Existiert eine Funktionenfolge $(f_n)_{n \in \N}$
+  wie oben, sodass $\varphi$ nicht Lebesgue-integrierbar
+  ist, aber dennoch $\lim_{n \to \infty} \int_0^1 f_n \df x = 0$
+  gilt?
+  
+  \textit{Antwort.} Ja. Betrachte die Funktionenfolge
+  $(f_n)_{n\in \N}$ auf $[0,1]$, 
+  der Funktionsgraph von $f_n$ aussieht wie
+  ein gleichschenkliges Dreieck mit der Höhe $h_n = 2(n+1)$
+  und mit dem Interval  $\left[\frac{1}{n+1}, \frac{1}{n}\right]$
+  als Basis (entsprechend: Breite $b_n = \frac{1}{n^2+n}$);
+  anderswo gilt $f_n(x) = 0$.
+  Diese $f_n$ sind stetig.
+  
+  Für jedes $f_n$ gilt dann:
+  \[
+    \int_0^1 f_n(x) \df x = \frac{h_n\cdot b_n}{2} = \frac{n+1}{n^2+n} = \frac{1}{n} \to 0, n \to \infty.
+  \]
+  
+  Da $\left[\frac{1}{m+1}, \frac{1}{m}\right] \cap \left[\frac{1}{n+1}, \frac{1}{n}\right] = \{1/m\}$ für $m = n + 1$
+  und $f(1/n) = 0$ für alle $n \in \N$,
+  kann man zum Berechnen von $\int_{[0,1]} \varphi \df m$
+  die Integrale der einzelnen $f_n$ addieren:
+  \[
+    \int_{[0,1]} \varphi \df m = \sum_{k = 1}^{n} \int_0^1 f_k(x) \df x = \sum_{k=1}^{n} \frac{1}{k} \to \infty, n \to \infty.
+  \]
+  Somit gilt $\varphi \notin \mathscr{L}_1([0,1])$.
+\end{enumerate}
+
+\section*{Aufgabe 4}
+Berechne das Lebesgue-Mass
+der Menge
+$K := \{(x,y) \in \R^2 : x^2 + y^2 \leq 1\} \subset \R^2$.
+
+\paragraph{Lösung}
+Ich bin nicht dazu gekommen, es ganz auszuformulieren,
+aber von der Idee her:
+\begin{enumerate}[1.]
+  \item $m(\{(x,y) \in \R^2 : x, y \geq 0, x^2 + y^2 \leq 1\})$ mit Rechtecken
+        der Breite $1/n$ von unten und von oben approximieren, $n \to \infty$:
+        
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=5cm,height=5cm]{figure/unnamed-chunk-1-1} 
+\end{knitrout}
+
+  \item Feststellen, dass dies das Riemannintegral $\int_0^1 \sqrt{1 - x^2} \df x$ ergibt.
+  \item Tun, als ob man $\sqrt{1 - x^2}$ aus dem Stegreif integrieren kann, und dabei $\pi/4$ als Lösung erhalten.
+  \item Symmetrie/Translationsinvarianz: $\leadsto m(K) = \pi$.
+\end{enumerate}
+
+
+\end{document}

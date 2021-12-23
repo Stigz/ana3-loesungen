@@ -1,0 +1,112 @@
+\documentclass[10pt]{article}
+
+\title{Serie 4, Aufgabe 1}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Proof}
+\newtheorem*{lemma}{Lemma}
+
+
+% \author{Jan Vanhove\\10-219-186}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Show that the following holds for each sequence $(E_n)_{n \in \N}$
+of measurable sets in a measure space $(X, \mathfrak{M}, \mu)$:
+\[
+  \mu(\bigcup_{n=1}^{\infty} E_n) \leq \sum_{n = 1}^{\infty} \mu(E_n).
+\]
+Conclude that the countable union of null sets is a null set.
+
+\begin{proof}
+Define $(A_n)_{n \in \N}$ with $A_1 := E_1$
+and $A_{n + 1} = E_{n+1} \setminus \bigcup_{k = 1}^n A_k$
+for $n \in \N$. All $A_n$ can be written as finite 
+intersections of measurable sets and are hence measurable, too.
+Note that $\bigcup_{n = 1}^{\infty} E_n = \dot\bigcup_{n = 1}^{\infty} A_n$
+and $0 \leq \mu(A_n) \leq \mu(E_n)$ for all $n$ since $A_n \subset E_n$.
+Hence
+\[
+  \mu(\bigcup_{n = 1}^{\infty} E_n) = \mu(\bigcup_{n = 1}^{\infty} A_n) = \sum_{n = 1}^{\infty} \mu(A_n) \leq \sum_{n=1}^{\infty} \mu(E_n).
+\]
+If $\mu(E_n) = 0$ for all $n$, then their union has measure zero,
+too.
+\end{proof}
+\end{document}

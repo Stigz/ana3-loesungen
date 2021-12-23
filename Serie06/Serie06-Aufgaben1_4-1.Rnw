@@ -1,0 +1,309 @@
+\documentclass[10pt]{article}
+
+\title{Serie 6}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+\usepackage[normalem]{ulem}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Beweis}
+\newtheorem*{lemma}{Lemma}
+
+
+\author{}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 1}
+Zeige, dass das Achsenkreuz in $\R^2$ Lebesgue-Mass Null hat.
+\begin{proof} 
+Für das Achsenkreuz $A \subset \R^2$ gilt
+\begin{align*}
+  A 
+  = \bigcup_{n = 0}^{\infty} \left( \underbrace{\{(x, 0) : n \leq x < n + 1\}}_{=: V_n} \cup \underbrace{\{(x, 0) : -n \leq x < -n + 1\}}_{=: V_{-n}} \cup \underbrace{\{(0, y) : n \leq y < n + 1\}}_{=: W_n} \cup  \underbrace{\{(0, y) : -n \leq y < -n + 1\}}_{=: W_{-n}}\right ).
+\end{align*}
+
+$V_n$ ist eine 2-Zelle mit $a_1 = n, b_1 = n + 1, a_2 = b_2 = 0$;
+$W_n$ ist eine 2-Zelle mit $a_2 = n, b_2 = n + 1, a_1 = b_1 = 0$; $n \in \N$.
+Also $\textrm{vol}~V_n = \textrm{vol}~W_n = 0$.
+Analog: $\textrm{vol}~V_{-n} = \textrm{vol}~W_{-n} = 0$.
+Folglich $\textrm{vol}(V_n \cup V_{-n} \cup  W_n \cup W_{-n}) = 0$.
+Folglich $m(A) = \textrm{vol}(\bigcup_{n = 0}^{\infty} (V_n \cup V_{-n} \cup  W_n \cup W_{-n}) = 0$.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 2}
+Es sei $m$ das Lebesgue-Mass auf $\R$.
+Zeige:
+\begin{enumerate}[(a)]
+  \item Die Funktion
+  \begin{align*}
+    f: \R &\to \R,\\
+    x &\mapsto
+    \begin{cases}
+      \frac{\sin(x)}{x}, & x \neq 0, \\
+      1, & x = 0,
+    \end{cases}
+  \end{align*}
+  ist stetig, messbar und Riemann-integrierbar, aber nicht Lebesgue-integrierbar bzgl.\ $m$,
+  und das Lebesgue-Integral $\int_{\R} f \df m$ ist nicht definiert.
+  \begin{proof}
+    \uline{$f$ ist stetig:} Klar für $x \neq 0$. Für $x = 0$, verwende L'Hôpital:
+    \[
+      \lim_{x \to 0} \frac{\sin(x)}{x} = \lim_{x \to 0} \cos(x) = 1 = f(0).
+    \]
+    Also $f$ stetig bei $x = 0$.
+
+    \uline{$f$ ist messbar:} $U \subset \R$ offen, dann $f^{-1}(U)$ offen,
+    da $f$ stetig ist. Offene Mengen sind Borelmengen. Also ist $f$ messbar.
+
+    \uline{$f$ ist Riemann-integrierbar:}
+    Für $t \in \R$ finden wir durch partielle Integration:
+    \begin{align*}
+    \int_{\pi/2}^t f(x) \df x
+    &= \left[-\frac{\cos(x)}{x}\right]^t_{\pi/2} - \int_{\pi/2}^t \frac{\cos(x)}{x^2} \df x \\
+    &= -\frac{\cos(t)}{t} - \int_{\pi/2}^t \frac{\cos(x)}{x^2} \df x.
+    \end{align*}
+    Da $\cos(x) \in [-1,1]$ gilt einerseits
+    \begin{align*}
+      \int_{\pi/2}^t f(x) \df x
+      &\geq -\frac{\cos(t)}{t} - \int_{\pi/2}^t \frac{1}{x^2} \df x \\
+      &= -\frac{\cos(t)}{t} + \frac{1}{t} - \frac{2}{\pi}
+    \end{align*}
+    und andererseits
+    \begin{align*}
+       \int_{\pi/2}^t f(x) \df x  &\leq -\frac{\cos(t)}{t} - \frac{1}{t} + \frac{2}{\pi}.
+    \end{align*}
+    Folglich:
+    \[
+      \left|\lim_{t \to \infty} \int_{\pi/2}^t f(x) \df x\right| \leq \frac{2}{\pi} < \infty.
+    \]
+    Weiter $|\int_0^{\pi/2} f(x) \df x| < \infty$, da $f$ stetig ist.
+    Da
+    \[\int_{-\infty}^{\infty}f(x) \df x = 2\left(\int_0^{\pi/2} f(x) \df x + \int_{\pi/2}^{\infty} f(x) \df x\right) < \infty,\]
+    ist $f$ Riemann-integrierbar.
+
+    \uline{$f$ ist nicht Lebesgue-integrierbar bzgl.\ $m$:}
+    Für stetige Funktionen auf einem kompakten Intervall
+    stimmen das Rieman- und das Lebesgue-Integral überein:
+    $\int_{[0, t]} |f| \df m = \int_0^t |f(x)| \df x$.
+    Berechne für $k \in \N_{\geq 1}$:
+    \begin{align*}
+    \int_0^{k\pi} \left|\frac{\sin(x)}{x}\right| \df x
+    &= \int_0^{\pi} \left|\frac{\sin(x)}{x}\right| \df x +
+       \int_{\pi}^{2\pi} \left|\frac{\sin(x)}{x}\right| \df x +
+       \dots +
+       \int_{(k-1)\pi}^{k\pi} \left|\frac{\sin(x)}{x}\right| \df x \\
+    &\geq \frac{1}{\pi}\int_0^{\pi} |\sin(x)| \df x +
+       \frac{1}{2\pi}\int_{\pi}^{2\pi} |\sin(x)| \df x +
+       \dots +
+       \frac{1}{k\pi}\int_{(k-1)\pi}^{k\pi} |\sin(x)| \df x \\
+    &\geq \frac{1}{\pi}\int_0^{\pi} \sin(x) \df x +
+       \frac{1}{2\pi}\int_{\pi}^{2\pi} \sin(x) \df x +
+       \dots +
+       \frac{1}{k\pi}\int_{(k-1)\pi}^{k\pi} \sin(x) \df x.
+    \end{align*}
+    Da $\int_{n\pi}^{(n+1)\pi} \sin(x) \df x = \int_{0}^{\pi} \sin(x) \df x = 2$ für alle $n \in \N$:
+    \[
+     \int_0^{k\pi} \left|\frac{\sin(x)}{x}\right| \df x \geq \frac{2}{\pi}\sum_{i=1}^n\frac{1}{i}.
+    \]
+    Für $k \to \infty$ erhalten wir eine Reihe von
+    Integralen, die durch die harmonische Reihe minorisiert wird
+    und folglich divergiert. Folglich $f \notin L_1(\R)$.
+    Folglich ist das Lebesgue-Integral von $f$ über $\R$ bzgl.\ $m$
+    nicht definiert (siehe Def.\ 3.1).
+  \end{proof}
+
+\item Die charakteristische Funktion $\chi_{\Q}$ von $\Q \subset \R$
+ist Lebesgue-integrierbar bzgl.\ $m$, aber nicht Riemann-integrierbar.
+Bestimme ausserdem $\int_{\R} \chi_{\Q} \df m$.
+  \begin{proof}
+  \uline{$\chi_{\Q}$ ist nicht Riemann-integrierbar:}
+  Jedes Intervall von $[0,1]$ enthält sowohl rationale als irrationale
+  Zahlen. Also
+  \[
+    \uline{S}(\chi_{\Q}, P) = 0,~~
+    \overline{S}(\chi_{\Q}, P) = 1
+  \]
+  für jede Partition $P$ von $[0,1]$.
+  Also ist $\chi_{\Q}$ nicht einmal auf $[0,1]$
+  Riemann-integrierbar.
+
+  \uline{$\chi_{\Q}$ ist Lebesgue-integrierbar; $\int_{\R} \chi_{\Q} \df m$:}
+  $\Q$ ist eine abzählbare Vereinigung von Punkten.
+  Punkte in $\R$ haben Lebesgue-Mass 0 (1-Zelle mit $a = b$).
+  Also ist $\Q$ eine Nullmenge bzgl. $m$.
+  Nullmengen sind beim Lebesgue-Integral unerheblich.
+  Also $\int_{\R} |\chi_{\Q}| \df m = \int_{\R} 0 \df m = 0 < \infty$. Also $\chi_{\Q} \in L_1(\R)$.
+  \end{proof}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 3}
+Die Cantor-Menge in $\R$ ist definiert als
+\[
+  T := \left\{\sum_{n=1}^{\infty} \frac{x_n}{3^n} : x_n \in \{0, 2\}\right\}.
+\]
+Beweise:
+\begin{enumerate}[(a)]
+  \item $T = [0,1] \setminus \bigcup_{n=1}^{\infty} M_n$, wobei
+  \[
+    M_n := \left\{\sum_{n=1}^{\infty} \frac{x_n}{3^n} : x_j \in \{0, 2\}, j < n, x_n = 1, (x_j)_{j=n+1}^{\infty} \neq \{0\}, \{2\}\right\}, n \in \N
+  \]
+  ist.
+  \begin{proof}
+   $t \in T \Rightarrow t \in [0,1]$ ist klar.
+   Falls $m \in M_n$ für irgendein $n \in \N$, dann ist in der Ternärdarstellung von $m$
+   mindestens eine $1$ notwendig. $T$ besteht jedoch gerade aus Zahlen ohne 1 in (einer möglichen)
+   Ternärdarstellung. Also $m \notin T$.
+  \end{proof}
+
+  \item $T$ ist abgeschlossen.
+  \begin{proof}
+  Jedes $M_n$ ist eine Vereinigung von $2^{n-1}$ offenen Intervallen
+  (je mit Länge $1/3^n$) und ist folglich offen.
+  Also ist auch $\bigcup_{n = 1}^{\infty}$ offen.
+  Wegen Teil (a) ist $T^c$ offen in $\R$. Also ist $T$ abgeschlossen.
+  \end{proof}
+
+  \item $T$ ist überabzählbar. Zeige dazu, dass die Abbildung
+  \begin{align*}
+    \varphi : T &\to [0,1],\\
+    \sum_{n=1}^{\infty} \frac{x_n}{3^n}  &\mapsto \sum_{n=1}^{\infty} \frac{y_n}{2^n}, y_j := \frac{x_j}{2}, j \in \N,
+  \end{align*}
+  wohldefiniert und surjektiv ist.
+  \begin{proof}
+  \uline{Die Abbildung $\varphi$ ist wohldefiniert:}
+  Die Ternärdarstellung von $t \in T$, mit $x_n \in \{0, 2\}$, ist eindeutig.
+  Grund: Angenommen, $t \in T$ hätte zwei unterschiedliche Ternärdarstellungen
+  mit $x_n,y_n \in \{0,2\}$ für alle $n \in \N$. Dann gibt es eine erste Stelle $k$,
+  wo sich diese unterscheiden.
+  Also würde gelten
+  \[
+  \frac{0}{3^k} + \sum_{n = k+1}^{\infty} \frac{x_n}{3^n} = \frac{2}{3^k} + \sum_{n = k+1}^{\infty} \frac{y_n}{3^n}
+  \]
+  mit $x_n, y_n \in \{0,2\}$ für alle $n \geq k+1$.
+  Das ist äquivalent zu
+  \[
+    2 = \sum_{n = k+1}^{\infty} \frac{x_n-y_n}{3^{k+n}}.
+  \]
+  Wegen $x_n-y_n \leq 2$ gilt aber
+  \[
+  \sum_{n = k+1}^{\infty} \frac{x_n-y_n}{3^{k+n}} \leq 2 \sum_{n = 1}^{\infty} \frac{1}{3^n} = 2\left(\frac{1}{1-1/3}-1\right) = 1.
+  \]
+  Widerspruch.
+
+  Folglich ist $\varphi(t)$ für $t \in T$ eindeutig.
+  Für jedes $t \in T$ gilt:
+  \[
+  0 = \sum_{i = 1}^{\infty}\frac{0}{2^i} \leq \varphi(t) \leq \sum_{i = 1}^{\infty}\frac{1}{2^i} = 1.
+  \]
+  Also ist $\varphi$ wohldefiniert.
+
+  \uline{$\varphi(T) = [0,1]$:}
+  Alle Zahlen im Intervall $[0,1]$
+  haben genau eine Binärdarstellung, die als regulärer Ausdruck $(0.(0|1)^*)_2$
+  geschrieben werden kann,
+  d.h., $[0,1] \ni x = \sum_{i=1}^{\infty}\frac{b_i}{2^i}$,
+  $b_i \in \{0,1\}, i \geq 1$.
+  Für jede solche Binärdarstellung gibt es
+  ein $t = \sum_{i=1}^{\infty}\frac{2b_i}{3^i}$
+  mit $2b_i \in \{0, 2\}$, also $t \in T$.
+  Also $\varphi(T) = [0,1]$.
+  Da $[0,1]$ überabzählbar ist, ist $T$ dies auch.
+  \end{proof}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 4}
+Berechne $m(T)$ für die Cantor-Menge $T$ aus Aufgabe 3
+und das Lebesgue-Mass $m$ auf $\R$.
+
+\paragraph{Lösung.}
+Aus Aufgabe 3:
+$\textrm{vol}~M_n = \frac{1}{2} \left(\frac{2}{3}\right)^n$.
+Da $M_k \cap M_{\ell} = \emptyset, k \neq \ell$, gilt
+\[
+  \textrm{vol}\left(\bigcup_{i = 1}^{\infty} M_i\right) = \frac{1}{2}\sum_{i = 1}^{\infty} \left(\frac{2}{3}\right)^i = \frac{1}{2} \left(\frac{1}{1-2/3} - 1\right) = 1.
+\]
+Wegen $T = [0,1] \setminus \bigcup_{i = 1}^{\infty} M_i$, folgt
+$m(T) = \textrm{vol}~T = 1 - 1 = 0$.
+
+\end{document}

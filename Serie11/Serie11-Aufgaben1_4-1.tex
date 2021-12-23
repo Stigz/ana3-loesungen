@@ -1,0 +1,388 @@
+\documentclass[10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\title{Serie 11}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+\usepackage[normalem]{ulem}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Beweis}
+\newtheorem*{lemma}{Lemma}
+
+
+\author{}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\DeclareMathOperator*{\supp}{supp}
+
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+\section*{Aufgabe 1}
+\begin{enumerate}[(a)]
+\item Zeige folgende Aussagen für die Fouriertransformationen
+für $f,g \in \mathscr{L}_1(\R^n), \alpha \in \R^n$:
+\begin{enumerate}[(i)]
+  \item $(\tau_\alpha f)\widehat{} = e_{-\alpha}\widehat{f}$.
+  \begin{proof}
+      \begin{align*}
+        (2\pi)^{n/2} (\tau_\alpha f)~\widehat{}
+        &= \int_{\R^n} (\tau_\alpha f)(x) e^{-i\langle x, \cdot \rangle} \df x & [\textrm{Definition Fourier}]\\
+        &= \int_{\R^n} f(x - \alpha) e^{-i\langle x, \cdot \rangle} \df x & [\textrm{Definition $\tau_\alpha$}]\\
+        &= \int_{\R^n} f(u) e^{-i \langle u + \alpha, \cdot \rangle} \df u & [u = x - \alpha]\\
+        &= \int_{\R^n} f(u) e^{-i \langle u, \cdot \rangle -i\langle \alpha , \cdot \rangle} \df u & [\textrm{Skalarprodukt bilinear}]\\
+        &= e^{-i\langle \alpha, \cdot \rangle} \int_{\R^n} f(u) e^{-i \langle u, \cdot \rangle} \df u & \\
+        &= e^{i\langle -\alpha, \cdot\rangle} \int_{\R^n} f(x) e^{-i \langle x, \cdot \rangle} \df x & [\textrm{Skalarprodukt bilinear}]\\
+        &= (2\pi)^{n/2} e_{-\alpha}(\cdot)\widehat{f}. &  [\textrm{Definition Fourier, $e_{-\alpha}$}].
+      \end{align*}
+      \end{proof}
+      
+  \item $(e_\alpha f)\widehat{} = \tau_\alpha \widehat{f}$.
+  \begin{proof}
+\begin{align*}
+  (2\pi)^{n/2} \widehat{e_\alpha f}
+  &= \int_{\R^n} (e_\alpha f)(x) e^{-i\langle x, \cdot\rangle} \df x & [\textrm{Definition Fourier}] \\
+  &= \int_{\R^n} f(x) e^{-i\langle x, \cdot\rangle + i\langle x, \alpha\rangle} \df x & [\textrm{Definition $e_\alpha(x)$}] \\
+  &= \int_{\R^n} f(x) e^{-i\langle x, \cdot\rangle - i\langle x, -\alpha\rangle} \df x & [\textrm{Skalarprodukt bilinear}] \\
+  &= \int_{\R^n} f(x) e^{-i\langle x, \cdot - \alpha\rangle} \df x &  \\
+  &= (2\pi)^{n/2} \tau_{\alpha} \widehat{f}. & [\textrm{Definition Fourier, $\tau_\alpha$}]
+\end{align*}
+\end{proof}
+  
+  \item $\left( \overline{f^{\lor}}\right)\widehat{} = \overline{\widehat{f}}$.
+  \begin{proof}
+    Die komplexe Konjugation und das Integral vertauschen, also
+    \begin{align*}
+      (2\pi)^{-n/2} \overline{\widehat{f}}
+      &= \overline{\int_{\R^n}f(x)e^{-i\langle x, \cdot \rangle} \df x} &\\
+      &= \int_{\R^n}\overline{f(x)}\overline{e^{-i\langle x, \cdot \rangle} \df x} &\\
+      &= \int_{\R^n}\left(\textrm{Re}(f(x)) - i\textrm{Im}(f(x))\right)e^{i\langle x, \cdot \rangle} \df x &\\
+      &= \int_{\R^n}\left(\textrm{Re}(f(x)) - i\textrm{Im}(f(x))\right)e^{-i\langle -x, \cdot \rangle} \df x &\\
+      &= \int_{\R^n}\left(\textrm{Re}(f(-x)) - i\textrm{Im}(f(-x))\right)e^{-i\langle x, \cdot \rangle} \df x & [T(x) = -x, |\det(T)| = 1] \\
+      &= \int_{\R^n} \overline{f(-x)}e^{-i\langle x, \cdot \rangle} \df x \\
+      &= (2\pi)^{-n/2}\widehat{\overline{f^{\lor}}}.& \qedhere
+    \end{align*}
+  \end{proof}
+  
+  \item $\lambda > 0, h(x) := f(\frac{x}{\lambda}), x \in \R^n \Rightarrow \widehat{h}(\xi) = \lambda^n \widehat{f}(\lambda \xi), \xi \in \R^n$.
+  \begin{proof}
+  Für $T(x) := x/\lambda$ gilt $|\det T| = \lambda^{-n}$.
+  Somit:
+\begin{align*}
+  (2\pi)^{n/2} \widehat{h}(t)
+  &= \int_{\R^n} h(x) e^{-i \langle x, t\rangle} \df x \\
+  &= \int_{\R^n} f(T(x)) e^{-i \lambda \langle T(x), t \rangle} \df x \\
+  &= \lambda^n \int_{\R^n} f(x) e^{-i \langle x, \lambda t \rangle} \df x \\
+  &=  (2\pi)^{n/2} \lambda^n \widehat{f}(\lambda t).\qedhere
+\end{align*}
+
+  \end{proof}
+  
+  
+  \item Es gilt $\widehat{f}g, f\widehat{g} \in \mathscr{L}_1(\R^n), \int_{\R^n}\widehat{f}g \df x = \int_{\R^n}f \widehat{g} \df x$.
+  
+  \begin{proof}
+  $\widehat{f}, \widehat{g}$ sind beschränkt (Bemerkung 8.3) und stetig, also $\widehat{f}g, f\widehat{g} \in \mathscr{L}_1(\R^n)$. Mit Fubini:
+\begin{align*}
+  \int_{\R^n} f(x)\widehat{g}(x) \df x
+  &= \int_{\R^n} f(x) \left((2\pi)^{-n/2} \int_{\R^n} g(y) e^{-i\langle y, x\rangle} \df y \right) \df x \\ 
+  &= (2\pi)^{-n/2} \int_{\R^n} \int_{\R^n} g(y) f(x) e^{-i\langle y, x\rangle} \df y \df x \\
+  &= (2\pi)^{-n/2} \int_{\R^n} g(y) \left(\int_{\R^n} f(x) e^{-i\langle x, y \rangle} \df x\right) \df y \\
+  &= \int_{\R^n} g(y) \widehat{f}(y) \df y \\
+  &=  \int_{\R^n} \widehat{f}(x) g(x)  \df x. \qedhere  \end{align*}
+  \end{proof}
+\end{enumerate}
+
+
+
+
+\item Es seien $f \in \mathscr{L}_1(\R^n), y \in \R^n$ und $g: \R^n \to \R$,
+      $g(y) = \|f-\tau_y f\|_1$. Zeige: $g(0) = 0$, $g \in \mathscr{L}_{\infty}(\R^n)$.
+      
+      \begin{proof}
+        \uline{$g(0) = 0$:}
+        \begin{align*}
+          g(y)(x) &= \|f(x)-\tau_yf(x)\|_1 \\
+          &= |f(x) - f(x-y)|.
+        \end{align*}
+        Also $g(0)(x) = 0$ für alle $x \in \R^n$.
+        
+        \uline{$g \in \mathscr{L}_{\infty}(\R^n)$:} (???)
+      \end{proof}
+\end{enumerate}
+
+
+\section*{Aufgabe 2}
+Berechne die Fouriertransformierten folgender Funktionen
+und verifiziere an mindestens einem Beispiel die Ungleichung
+$\| \widehat{f} \|_{\infty} \leq (2\pi)^{-n/2}\|f\|_1$:
+\begin{enumerate}[(a)]
+  \item $f: \R \to \R, f(x) = e^{-\lambda |x|},$ für eine Konstante $\lambda > 0$.
+  
+  
+  \paragraph{Lösung.}
+\begin{align*}
+  \widehat{f}(t)
+  &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-\lambda|x|}e^{-ixt} \df x \\
+  &= \frac{1}{\sqrt{2\pi}} \left(\int_{-\infty}^0 e^{\lambda x}e^{-ixt} \df x  + \int_{0}^{\infty} e^{-\lambda x}e^{-ixt} \df x\right) \\
+  &= \frac{1}{\sqrt{2\pi}} \left(\int_{-\infty}^0 e^{\lambda x}(\cos(xt) - i\sin(xt)) \df x + \int_{0}^{\infty} e^{-\lambda x}(\cos(xt) - i\sin(xt)) \df x\right).
+\end{align*}
+
+\uline{$\int e^{\lambda x}\cos(xt) \df x (=: \star)$:} Berechnung durch partielle Integration
+mit $f = \cos(xt), g' = e^{\lambda x}$, d.h.,
+$f' = -t\sin(xt), g = \frac{1}{\lambda}e^{\lambda x}$.
+Daraus:
+\begin{align*}
+  \star &= \frac{1}{\lambda} \left(\cos(xt)e^{\lambda x} + t\int \sin(tx)e^{\lambda x} \df x\right)
+\end{align*}
+Mit partieller Integration mit $f = \sin(tx), f' = t\cos(tx), g' = e^{\lambda x}, g = \frac{1}{\lambda}e^{\lambda x}$:
+\begin{align*}
+  \star &= \frac{1}{\lambda} \cos(xt)e^{\lambda x} + \frac{t}{\lambda^2} \sin(tx)e^{\lambda x} - \left(\frac{t}{\lambda}\right)^2 \star.
+\end{align*}
+Daraus:
+\[
+ \star = \frac{\lambda^2}{\lambda^2 + t^2}\left(\frac{1}{\lambda} \cos(xt)e^{\lambda x} + \frac{t}{\lambda^2}\sin(tx)e^{\lambda x}\right).
+\]
+Folglich:
+\[
+ \int_{-\infty}^0 e^{\lambda x}\cos(xt) \df x
+ = \frac{\lambda}{\lambda^2 + t^2}.
+\]
+
+\uline{$\int e^{\lambda x}\sin(xt) \df x (=: \star)$:}
+Berechnung mit partieller Integration mit
+$f = \sin(xt), f' = t\cos(xt), g' = e^{\lambda x}, g = \frac{1}{\lambda}e^{\lambda x}$:
+\begin{align*}
+  \star &= \frac{1}{\lambda} \left(\sin(xt)e^{\lambda x} - t\int \cos(tx)e^{\lambda x} \df x\right).
+\end{align*}
+Jetzt mit
+$f = \cos(xt), f' = -t\sin(xt),  g' = e^{\lambda x}, g = \frac{1}{\lambda}e^{\lambda x}$:
+\begin{align*}
+  \star &= 
+  \frac{1}{\lambda}\sin(xt)e^{\lambda x} - \frac{t}{\lambda^2}\cos(xt)e^{\lambda x} - \left(\frac{t}{\lambda}\right)^2 \star.
+\end{align*}
+Daraus:
+\[
+  \star = \frac{\lambda^2}{\lambda^2 + t^2}\left(\frac{1}{\lambda}\sin(xt)e^{\lambda x} - \frac{t}{\lambda^2}\cos(xt)e^{\lambda x}\right).
+\]
+Folglich:
+\[
+ \int_{-\infty}^0 e^{\lambda x}\sin(xt) \df x
+ = \frac{-t}{\lambda^2 + t^2}.
+\]
+
+\uline{Analog:}
+\[
+  \int_0^{\infty} e^{-\lambda x}\sin(xt) \df x = \frac{t}{\lambda^2 + t^2},
+\]
+\[
+  \int_0^{\infty} e^{-\lambda}\cos(xt) \df x = \frac{\lambda}{\lambda^2 + t^2}.
+\]
+
+Die Gesamtlösung:
+\begin{align*}
+\widehat{f}(t)
+&= \frac{1}{\sqrt{2\pi}(\lambda^2 + t^2)}(\lambda + it + \lambda - it) 
+= \frac{2\lambda}{\sqrt{2\pi}(\lambda^2 + t^2)}.
+\end{align*}
+  
+  \item $g : \R^2 \to \R, g(x_1, x_2) = \begin{cases} x_1x_2, & \textrm{falls $|x_1|, |x_2| \leq 1$,} \\ 0, & \textrm{sonst.} \end{cases}$
+
+  \paragraph{Lösung (b).}
+Mit Fubini:
+\begin{align*}
+ \widehat{g}(t_1, t_2)
+ &= \frac{1}{2\pi} \int_{[-1, 1]^2} x_1x_2 e^{-ix_1t_1}e^{-ix_2t_2} \df x \\
+ &= \frac{1}{2\pi} \int_{-1}^1 x_1 e^{-ix_1t_1} \left(\int_{-1}^{1} x_2 e^{-ix_2t_2} \df x_2 \right) \df x_1. \\
+\end{align*}
+Es gilt
+\begin{align*}
+\int_{-1}^{1} x_2 e^{-ix_2t_2} \df x_2
+&= \int_{-1}^1 x_2(\cos(x_2t_2) - i\sin(x_2t_2)) \df x_2 \\
+&= \int_{-1}^1 x_2\cos(x_2t_2) \df x_2 - i\int_{-1}^1 x_2 \sin(x_2t_2) \df x_2.
+\end{align*}
+Durch partielle Integration (mit Computer) findet man
+\[
+ \int_{-1}^1 x_2\cos(x_2t_2) \df x_2 = 0
+\]
+und
+\[
+ \int_{-1}^1 x_2\sin(x_2t_2) \df x_2 = \frac{2(\sin(t_2)-t_2\cos(t_2))}{t_2^2}.
+\]
+Also
+\begin{align*}
+  \widehat{g}(t_1, t_2)
+  &= \frac{-2i(\sin(t_2)-t_2\cos(t_2))}{2\pi t_2^2} \int_{-1}^1 x_1 e^{-ix_1t_1} \df x_1. \\
+  &= \frac{1}{2\pi}\left(\frac{-2i(\sin(t_2)-t_2\cos(t_2))}{t_2^2}\right)\left(\frac{-2i(\sin(t_1)-t_1\cos(t_1))}{t_1^2}\right) \\
+  &= -\frac{2}{\pi(t_1t_2)^2}(\sin(t_1) - t_1\cos(t_1))(\sin(t_2)-t_2\cos(t_2)).
+\end{align*}
+
+  
+\end{enumerate}
+
+\section*{Aufgabe 3}
+Zeige $\widehat{f} = f$ für $f: \R^n \to \R, f(x) := e^{-\|x\|^2/2}$.
+
+\paragraph{Lösung.}
+Für $x = (x_1, \dots, x_{n-1}, x_n) \in \R^n$,
+definiere $\widetilde{x} = (x_1, \dots, x_{n-1}) \in \R^{n-1}$.
+Definiere $\widetilde{t} \in \R^{n-1}$ analog für $t \in \R^n$.
+Dann
+\begin{align*}
+  \widehat{f}(t)
+  &= (2\pi)^{-n/2} \int_{\R^n} e^{-\|x\|^2/2} e^{-i\langle x, t \rangle} \df x \\
+  &= (2\pi)^{-n/2} \int_{\R^n} e^{-\|\widetilde{x}\|^2/2}e^{-x_n^2/2} e^{-i\langle \widetilde{x}, \widetilde{t} \rangle}e^{-i\langle x_n, t_n \rangle} \df x \\
+  &= (2\pi)^{-n/2} \int_{\R^{n-1}} e^{-\|\widetilde{x}\|^2/2}e^{-i\langle \widetilde{x}, \widetilde{t} \rangle} \left(\int_{\R} e^{-x_n^2/2} e^{-i x_n t_n} \df x_n \right) \df \widetilde{x}.
+\end{align*}
+Klügere Menschen können jetzt wohl zeigen, dass
+\[
+  \int_{\R} e^{-x_n^2/2} e^{-i x_n t_n} \df x_n = \sqrt{2\pi} e^{-x_n^2/2}.
+\]
+Induktiv würde dann
+\[
+ \widehat{f}(t) = (2\pi)^{-n/2} \sqrt{(2\pi)}^n e^{-x_1^2/2} \cdot \dots \cdot e^{-x_n^2/2} = e^{-\|x\|^2/2}
+\]
+folgen.
+
+\section*{Aufgabe 4}
+Es seien $1 \leq p < \infty, f \in \mathscr{L}_p(\R^n)$
+und $\{\varphi_\varepsilon: \varepsilon > 0\}$
+ein glättender Kern mit $\varphi \in C_c^{\infty}(\R^n)$.
+Zeige:
+\begin{enumerate}[(a)]
+  \item $\varphi(\cdot - y) \cdot f(\cdot) \in \mathscr{L}_p(\R^n), y \in \R^n$.
+
+
+  \item $\varphi * f \in C^{\infty}(\R^n)$.
+
+  
+  \item $\supp(\varphi * f) \subset \supp(f) + \supp(\varphi)$.
+
+  \item Falls $f \in C_c(\R^n)$, dann konvergiert $\varphi_\varepsilon * f$ gleichmässig gegen $f$ für $\varepsilon \to 0$.
+
+\end{enumerate}
+
+(???)
+\end{document}

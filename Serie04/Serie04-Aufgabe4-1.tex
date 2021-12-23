@@ -1,0 +1,186 @@
+\documentclass[10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\title{Serie 4, Aufgabe 4}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Proof}
+\newtheorem*{lemma}{Lemma}
+
+
+% \author{Jan Vanhove\\10-219-186}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let $(X, \mathfrak{M}, \mu)$ be a measure space,
+$f_n, g_n, f, g \in \mathscr{L}_1(\mu), n \in \N$,
+with $f_n \to f, g_n \to g, n \to \infty$ pointwise
+nearly everywhere, $|f_n| \leq g_n, n \in \N$,
+and $\int_X g_n \df \mu \to \int_X g \df \mu, n \to \infty$.
+Show that
+\[
+  \int_X f_n \df \mu \to \int_X f \df \mu, n \to \infty.
+\]
+
+\begin{proof}
+For real-valued $f, g, f_n, g_n$, 
+we have $g_n - f_n \geq 0$ for all $n$.
+The sequence $(g_n - f_n)_{n \in \N}$ converges to $g - f$ nearly
+everywhere.
+By Fatou's Lemma, we obtain
+\begin{align*}
+  \int_X g \df \mu - \int_X f \df \mu
+  &= \int_X g - f \df \mu \\
+  &= \int_X \lim_{n \to \infty} g_n - f_n \df \mu \\
+  &\leq \liminf_{n \to \infty} \int_X g_n - f_n \df \mu \\
+  &= \liminf_{n \to \infty} \int_X g_n \df \mu + \int_X -f_n \df \mu \\
+  &= \int_X g \df \mu + \liminf_{n \to \infty} \int_X -f_n \df \mu \\
+  &= \int_X g \df \mu - \limsup_{n \to \infty} \int_X f_n \df \mu.
+\end{align*}
+Hence $\int_X f \df \mu \geq \limsup_{n \to \infty} \int_X f_n \df \mu$.
+
+Similarly, $g_n + f_n \geq g - |f_n| \geq 0$ for all $n$.
+By the same logic, we obtain
+$\int_X f \df \mu \leq \liminf_{n \to \infty} \int_X f_n \df \mu$.
+Hence $\int_X f \df \mu = \lim_{n \to \infty} \int_X f_n \df \mu$.
+
+For complex-valued functions, note that
+$g_n \pm \textrm{Re}(f_n) \geq 0$
+and $g_n \pm \textrm{Im}(f_n) \geq 0$.
+From the above, it follows that
+\[
+\int_X \textrm{Re}(f) \df \mu = \lim_{n \to \infty} \int_X \textrm{Re}(f_n) \df \mu
+\]
+and
+\[
+\int_X \textrm{Im}(f) \df \mu = \lim_{n \to \infty} \int_X \textrm{Im}(f_n) \df \mu.
+\]
+So $\int_X f \df \mu = \lim_{n \to \infty} \int_X f_n \df \mu$.
+\end{proof}
+\end{document}

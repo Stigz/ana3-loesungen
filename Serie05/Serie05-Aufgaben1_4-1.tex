@@ -1,0 +1,387 @@
+\documentclass[10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\title{Series 5}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Beweis}
+\newtheorem*{lemma}{Lemma}
+
+
+% \author{Jan Vanhove\\10-219-186}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Exercise 1}
+Check if the condition
+\[
+  \int_X |f(x)| \df x < \infty
+\]
+ist met for the Riemann integral for the following functions $f: X \to \R$:
+\begin{enumerate}[(i)]
+  \item $X = (1, \infty)$, $f(x) := x^s, s \in \R$.
+
+  \textit{Answer.}  For $s = -1$:
+  \[
+    \int_X |x^s| \df x = \lim_{x \to \infty} \ln(x) - \ln(1) = \infty.
+  \]
+
+
+  For $s \neq 1$:
+  \[
+    \int_X |x^s| \df x = \frac{1}{s+1} (\lim_{x \to \infty} x^{s+1} - 1) = \begin{cases}
+      \infty, & s > -1,\\
+      -\frac{1}{s+1}, & s < -1.
+    \end{cases}.
+  \]
+  So `no' for $s \geq -1$ and `yes' for $s < -1$.
+
+  \item $X = \R, f(x) := e^{-x^2}$.
+
+  \textit{Answer.}
+  This'll probably be the wrong way round, but here goes:
+  The probability density function
+  of the standard normal is given by $g: \R \to \R$:
+  \[
+    g(x) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2}.
+  \]
+  So $g(x) = \sqrt{\frac{f(x)}{2\pi}}$.
+  So $f(x) = 2\pi (g(x))^2$.
+  Since $0 < g(\R) < 1$,
+  $(g(x))^2 < g(x)$ for all $x \in \R$.
+  Since $\int_{-\infty}^{\infty} g(x) \df x = 1$,
+  $\int_{-\infty}^{\infty} (g(x))^2 \df x \leq 1$.
+  So $\int_{-\infty}^{\infty} f(x) \df x \leq 2\pi < \infty$.
+  So `yes'.
+\end{enumerate}
+
+\section*{Exercise 2}
+\begin{enumerate}[(a)]
+  \item Let $(X, \tau)$ be a topological space.
+  Show that $C_c(X)$ is a vector subspace
+  of $C(X)$. Further show that $f, g \in C_c(X) \Rightarrow fg \in C_c(X)$.
+  \begin{proof}
+  $C_c(X)$ is a vector subspace:
+  \begin{itemize}
+    \item $0 \in C(X)$ is continuous. $\textrm{supp~} 0 = \overline{\emptyset} = \emptyset$, which is compact.
+    So $0 \in C_c(X)$.
+
+    \item $f, g \in C_c(X)$. Then $f + g$ is continuous.
+    If $f(x) = g(x) = 0$, then $(f+g)(x) = 0$.
+    Further, $\overline{A \cup B} = \overline{A} \cup \overline{B}$.
+    Hence:
+    \begin{align*}
+      \textrm{supp~} (f+g)
+      &= \overline{\{x \in X : f(x) + g(x) \neq 0\}} \\
+      &\subset \overline{\{x \in X : f(x) \neq 0 \lor g(x) \neq 0\}} \\
+      &= \overline{\{x \in X : f(x) \neq 0\} \cup \{x \in X :g(x) \neq 0\}} \\
+      &= \textrm{supp~} f \cup \textrm{supp~} g,
+    \end{align*}
+    which is compact as the union of two compact sets. Closed subsets of 
+    compact sets are compact, too, hence $ \textrm{supp~} (f+g)$ is compact.
+    So $f+g \in C_c(X)$.
+
+    \item $f \in C_c(X), \alpha \in \C$. Then $\alpha f$ is continuous.
+    If $\alpha = 0, \alpha f \equiv 0 \in C_c(X)$.
+    If $\alpha \neq 0$, $\alpha f(x) \neq 0 \Leftrightarrow f(x) \neq 0$. Hence
+    $\textrm{supp~} \alpha f = \textrm{supp~} f$, which is compact. So $\alpha f \in C_c(X)$.
+  \end{itemize}
+
+  For $f,g \in C_c(X)$, $fg$ is continuous.
+  Further: $(fg)(x) \neq 0 \Leftrightarrow f(x) \neq 0 \land g(x) \neq 0$.
+  So
+  \[
+    \textrm{supp~} fg  = \overline{\{x \in X: f(x) \neq 0\} \cap \{x \in X : g(x) \neq 0\}} \subset \textrm{supp~} f.
+  \]
+  Closed subsets of compact sets are compact. So $fg \in C_c(X)$.
+  \end{proof}
+
+  \item Let $f : \R \to \R, f:= \chi_{[-\pi, \pi]}$ and
+  \begin{align*}
+    g: \R &\to \R,\\
+    x &\mapsto
+    \begin{cases}
+      \sin(x),    & x \geq 0,\\
+      0,          & x < 0.
+    \end{cases}
+  \end{align*}
+    Determine $\textrm{supp~} f, \textrm{supp~} g, \textrm{supp~} fg$.
+    Check if $f,g,fg \in C_c(\R)$.
+
+    Further: For $a \in \R, \varepsilon > 0$,
+    define $f_{(\varepsilon, a)}: \R \to \R, f_{(\varepsilon, a)}(x) := f(\varepsilon x - a)$.
+    Determine $\textrm{supp~} f_{(\varepsilon, a)}$.
+
+    \textit{Answer.} $f \notin C_c(\R)$ since it's not continuous.
+    \[
+      \textrm{supp~} f = \overline{\{x \in \R: f(x) \neq 0\}} = \overline{[-\pi, \pi]} = [-\pi, \pi].
+    \]
+
+    $g \notin C_c(\R)$ since its support isn't bounded.
+        \[
+      \textrm{supp~} g = \overline{\{x \in \R: g(x) \neq 0\}} = \overline{\R_{\geq 0} \setminus \pi \Z} = \R_{\geq 0}.
+    \]
+
+    $fg \in C_c(\R)$ since it's continuous 
+    ($(fg)|_{[0, \pi]} \equiv \sin(x)|_{[0, \pi]}, (fg)|_{[0, \pi]^c} \equiv 0|_{[0, \pi]^c}$, 
+    and $\sin(0) = \sin(\pi) = 0$) 
+    and its support is compact.
+    \begin{align*}
+      \textrm{supp~} fg
+      &= \overline{\{x \in \R : f(x)g(x) \neq 0\}} \\
+      &= \overline{\{x \in [-\pi, \pi] : g(x) \neq 0\}} \\
+      &= \overline{\{x \in [0, \pi] : \sin(x) \neq 0\}} \\
+      &= \overline{(0, \pi)} = [0, \pi].
+    \end{align*}
+
+    Further:
+    \begin{align*}
+      \textrm{supp~} f_{(\varepsilon, a)}
+      &= \overline{\{x \in \R : f(\varepsilon x - a) \neq 0\}} \\
+      &= \overline{\{x \in \R : \varepsilon x - a \in [-\pi, \pi]\}} \\
+      &= \overline{\{x \in \R : x \in [\frac{a - \pi}{\varepsilon}, \frac{a + \pi}{\varepsilon}]\}} \\
+      &= [\frac{a - \pi}{\varepsilon}, \frac{a + \pi}{\varepsilon}].
+    \end{align*}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Exercise 3}
+\begin{enumerate}[(a)]
+  \item Let the hypotheses of Riesz representation theorem be met. Prove the following:
+  \begin{itemize}
+    \item $E \in \mathfrak{M}$ is $\sigma$-compact $\Rightarrow$ $E$ has $\sigma$-finite measure.
+    \begin{proof}
+     Since $E$ is $\sigma$-compact, there exist compact $K_i \subset X, i \in \N,$ such that 
+     $E = \bigcup_{i = 1}^{\infty} K_i$.
+     By Theorem 4.7(i), $\mu(K_i) < \infty$ for all $i \in \N$.
+    \end{proof}
+    
+    \item $E \in \mathfrak{M}$ has $\sigma$-finite measure $\Rightarrow$ $E$ is inner regular.
+    \begin{proof}
+      For $E$ with $\mu(E) < \infty$, Theorem 4.7 suffices.
+      For $\mu(E) = \infty$, we may write $E = \bigcup_{i = 1}^{\infty} E_i$,
+      for $E_i$ with $\mu(E_i) < \infty$ for all $i \in \N$. Note that
+      \[
+        \mu(\bigcup_{i = 1}^n E_i) \leq \sum_{i = 1}^n \mu(E_i) < \infty.
+      \]
+      Hence, by Theorem 4.7,
+      \[
+        \mu(\bigcup_{i = 1}^n E_i) = \sup\{\mu(K) : K \subset \bigcup_{i = 1}^n E_i, \textrm{$K$ compakt}\}.
+      \]
+      As $n \to \infty$, we obtain
+      \[
+        \mu(\bigcup_{i = 1}^\infty E_i) = \mu(E) = \sup\{\mu(K) : K \subset E, \textrm{$K$ compakt}\}.\qedhere
+      \]
+    \end{proof}
+  \end{itemize}
+  
+  \item Let $(X, d)$ be a metric space, $\lambda$ a Borel measure on $X$
+  with $\lambda(K) < \infty$ for all compact $K \subset X$. Prove that
+  \begin{align*}
+    \Lambda: C_c(X, \R) &\to \R,\\
+    f &\mapsto \int_X f \df \lambda
+  \end{align*}
+  is a monotonous positive linear form.
+  \begin{proof}
+  \begin{enumerate}[(1)]
+    \item $\Lambda$ is well-defined:\\
+    $f \in C_c(X, \R)$ implies $f(X) \subset \R$ compact (comment re: Definition 4.3), i.e., bounded
+    by a constant function $c(x) = \beta \in \R, x \in X$.
+    $f \in C_c(X, \R)$ also implies that $f$ is non-zero on a (subset of)
+    a compact set $K \subset X$. So $\int_X f \df \lambda \leq \beta \mu(K) < \infty$.
+    
+    \item $\Lambda$ is a map from a $\C$ vector space to $\R \subset \C$.
+    
+    \item $\Lambda$ is $\C$-linear:\\ 
+    From (1): $f,g \in C_c(X, \R) \Rightarrow f,g \in \mathscr{L}_1(\lambda)$.
+    $\Lambda(f + \alpha g) = \Lambda(f) + \alpha\Lambda(g)$ follows from Theorem 3.2.
+    
+    \item $\Lambda$ is positive since by Proposition 2.6:
+    \[
+      0 \leq f \Rightarrow 0 = \int_X 0 \df \lambda \leq \int_X f \df \lambda.
+    \]
+  \end{enumerate}
+
+    So $\Lambda$ is a positive linear form.
+    All positive linear forms are monotonous (as proved in lecture).
+  \end{proof}
+\end{enumerate}
+
+\section*{Exercise 4 (Lebesgue sums)}
+Let $(X, \mathfrak{M}, \mu)$ be a measure space and
+let $f : X \to \R$ be positive, bounded and measurable.
+Define
+\[
+  A_j := \{x \in X : \alpha + \frac{(j - 1)(\beta - \alpha)}{n} \leq f(x) < \alpha + \frac{j(\beta - \alpha)}{n}\}
+\]
+and
+\[
+  A_n := \{x \in X : \alpha + \frac{(n-1)(\beta - \alpha)}{n} \leq f(x) \leq \beta\}
+\]
+for $j = 1, \dots, n-1, n \in \N$ and with
+$\alpha := \inf\{f(x) : x \in X\}$,
+$\beta := \sup\{f(x): x \in X\}$.
+Prove that
+\[
+  \int_X f \df \mu = \lim_{n \to \infty} s_n,
+\]
+where
+\[
+  s_n := \sum_{j = 1}^n \left(\alpha + \frac{(j-1)(\beta - \alpha)}{n}\right) \mu(A_j),
+\]
+$n \in \N$.
+\begin{proof}
+  % If $\int_X f \df \mu = \infty$, then, because of the boundedness, $\mu(X) = 
+  Note that $s_n = \int_X z_n \df \mu$, where
+  $z_n : X \to \R, z_n := \sum_{j = 1}^n \left(\alpha + \frac{(j-1)(\beta - \alpha)}{n}\right) \chi_{A_j}, n \in \N,$
+  is a simple measurable function.
+  
+  Further note that $z_n \leq f$: For $i \neq j, A_i \cap A_j = \emptyset$.
+  Hence, $z_n(x) = \alpha + \frac{(k-1)(\beta - \alpha)}{n} \leq f(x)$ for one $k \in \{1, \dots, n\}$.
+  Since $f$ is bounded, so is $z_n$.
+  
+  Moreover, $z_n \to f, n \to \infty$:
+  As $n \to \infty$, $\left(\alpha + \frac{j(\beta - \alpha)}{n}\right) - \left(\alpha + \frac{(j - 1)(\beta - \alpha)}{n}\right) \to 0$
+  for all $j \in \{0, \dots, j-n\}$. Similarly,
+  $\beta - \left(\alpha + \frac{(n-1)(\beta - \alpha)}{n}\right) \to 0$.
+  So for $n \to \infty$ and for $k = 1, \dots, n$, $z_n(x) = \frac{(k-1)(\beta - \alpha)}{n} \to f(x)$.
+  
+  Now assume that there exists a $g \in \mathscr{L}_1$ such that $g \geq z_n$ for all $n$.
+  Then by dominated convergence, we obtain
+  \[
+    \lim_{n \to \infty} s_n = \lim_{n \to \infty} \int_X z_n \df \mu = \int_X \lim_{n \to \infty} z_n \df \mu = \int_X f \df \mu. 
+  \]
+  If no such $g$ exists, then $f \notin \mathscr{L}_1$, so $\int_X f \df \mu = \infty$. By Fatou:
+  \[
+    \infty = \int_X f \df \mu = \int_X \lim_{n \to \infty} z_n \df \mu \leq \liminf_{n \to \infty} \int_X z_n \df \mu = \liminf_{n \to \infty} s_n,
+  \]
+  so $s_n \to \infty, n \to \infty$.
+\end{proof}
+\end{document}

@@ -1,0 +1,301 @@
+\documentclass[10pt]{article}
+
+\title{Serie 10}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+\usepackage[normalem]{ulem}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Beweis}
+\newtheorem*{lemma}{Lemma}
+
+
+\author{}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\DeclareMathOperator*{\supp}{supp}
+
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 1}
+Es seien $X = Y = [0,1]$ und
+$\mu = \nu$ das Lebesgue-Mass auf $[0,1]$.
+Weiter seien $t_0 = 0, (t_n)_{n \in \N}$
+eine monoton steigende Folge mit $t_n \to 1, n \to \infty$
+und $(g_n)_{n \in \N}$ eine Folge messbarer Funktionen
+mit $\supp g_n \subset (t_{n-1}, t_n)$
+und $\int_{[0,1]} g_n \df \mu = 1, n \in \N$.
+Zeige, dass
+\begin{align*}
+  f: X \times Y     &\to    \R,\\
+  (x,y) &\mapsto \sum_{n=1}^{\infty}(g_n(x)-g_{n+1}(x))g_n(y),
+\end{align*}
+wohldefiniert ist und dass gilt
+\begin{align*}
+  \int_X \int_Y f(x,y) \df \nu \df \mu \neq \int_Y \int_X f(x,y) \df \mu \df \nu.
+\end{align*}
+
+\textbf{$f$ ist wohldefiniert.}
+Für ein $x \in [0,1]$ existiert höchstens ein von $x$ abhängiges $n \in \N$,
+sodass $g_n(x) \neq 0$.
+Grund:
+\begin{align*}
+g_n(x) \neq 0 \Rightarrow x \in (t_{n-1}, t_n) \Rightarrow x \notin (t_{m-1}, t_m), m \neq n \Rightarrow g_m(x) = 0, m \neq n. 
+\end{align*}
+Für $(x,y) \in [0,1]^2$ gilt also
+\[
+  f(x,y) = \sum_{n=1}^{\infty}(g_n(x)-g_{n+1}(x))g_n(y) = (g_{k_y}(x) - g_{k_y+1}(x))g_{k_y}(y) < \infty
+\]
+für ein von $y$ abhängiges $k_y \in \N$. Also ist $f$ wohldefiniert.
+
+\textbf{Integrationsreihenfolge.}
+Für festes $y_0 \in [0,1]$ gilt
+\[
+  f(\cdot,y_0) = (g_{k}(\cdot) - g_{k+1}(\cdot))g_{k}(y_0),
+\]
+für ein $k \in \N$.
+Also 
+\begin{align*}
+  \int_0^1 f(x, y_0) \df x
+  &= \int_0^1 f(x, y_0) \df x \\
+  &= \int_0^1 (g_{k}(x) - g_{k+1}(x))g_{k}(y_0) \df x \\
+  &= g_k(y_0)\left(\int_0^1 g_k(x) \df x - \int_0^1 g_{k+1}(x) \df x \right) \\
+  &= g_k(y_0)\left(1 - 1\right) = 0,
+\end{align*}
+da $\int_0^1 g_n(x) \df x = 1$ für alle $n \in \N$.
+Also 
+\[
+  \int_Y \int_X f(x,y) \df x \df y = \int_Y 0 \df y = 0.
+\]
+
+Für festes $x_0 \in [0,1)$ (das Verhalten bei $x = 1$
+wird das Integral nicht beeinflussen) ist die Summe im Integral endlich,
+weshalb sie mit dem Integral vertauscht.
+\begin{align*}
+ \int_Y f(x,y) \df y
+ &= \int_Y \sum_{n=1}^{\infty} (g_n(x_0)-g_{n+1}(x_0))g_n(y) \df y &\\
+ &= \sum_{n=1}^{\infty} \int_Y (g_n(x_0)-g_{n+1}(x_0))g_n(y) \df y &\\
+ &= \sum_{n=1}^{\infty} (g_n(x_0)-g_{n+1}(x_0)) & [\int_Y g_n(y) \df y = 1] \\
+ &= g_1(x_0) - \underbrace{\lim_{n \to \infty} g_n(x_0)}_{= 0} & [\textrm{teleskopische Summe}] \\
+ &= g_1(x_0). &
+\end{align*}
+Da $\int_X g_1(x) \df x = 1$, folgt
+\[
+  \int_X \int_Y f(x_y) \df y \df x = \int_X g_1(x) \df x = 1 \neq 0 =  \int_Y \int_X f(x,y) \df x.
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 2}
+Es seien $\|\cdot\|$ die euklidische Norm auf $\R^n$
+und $K_n := \{x \in \R^n : \|x\| \leq 1\}$
+die $n$-dimensionale Einheitskugel. Zeige:
+\[
+  \textrm{vol}(K_n) = 
+  \begin{cases}
+    \frac{2^{k+1}\pi^k}{1\cdot 3 \cdot \dots \cdot (2k+1)}, & n = 2k+1, k \in \N_0,\\
+    \frac{\pi^k}{k!}, & n = 2k, k \in \N.
+  \end{cases}
+\]
+
+\begin{proof}
+Wir führen einen Induktionsbeweis.
+
+\uline{Verankerung:}
+Für $n = 1$
+ist die Einheitskugel gleich dem Intervall $[-1,1]$.
+Dessen Volumen beträgt 2, was mit der Aussage übereinstimmt.
+Für $n = 2$ erhalten wir die Fläche des Einheitskreises, $\pi$.\footnote{Wir brauchen zwei Verankerungen, da wir 
+beim Induktionsschritt die geraden und die ungeraden $n$ separat behandeln.}
+
+\uline{Induktionsschritt:}
+Betrachte nun $K_{n+1}$ für irgendein $n \in \N$. 
+Für $K_{x_{n+1}}$ gilt
+\begin{align*}
+  K_{x_{n+1}} 
+  &= \{(x_i)^{n}_{i=1} : (x_i)_{i=1}^{n+1} \in K_{n+1}\} \\
+  &= \bigcup_{t \in [-1, 1]} K_{x_{n+1}, t},
+\end{align*}
+wo
+\[
+  K_{x_{n+1}, t} = \{(x_1, \dots, x_{n}) : \sum_{i=1}^{n}x_i^2 \leq 1 - t^2\}
+\]
+für $t \in [-1,1]$.
+Für fixes $t \in [-1,1]$ ist $K_{x_{n+1},t}$ eine $n$-dimensionale Einheitskugel,
+die um den Faktor $\sqrt{1-t^2}$ gestreckt wurde. Streckungen sind lineare
+Abbildungen, und die Determinante dieser Streckung beträgt $(1-t^2)^{n/2}$.
+Somit erhalten wir
+\[
+  \textrm{vol}(K_{x_{n+1}, t}) = (1-t^2)^{n/2}\textrm{vol}(K_n).
+\]
+Mit Cavalieri folgt
+\[
+  \textrm{vol}(K_{n+1}) = \textrm{vol}(K_{n}) \underbrace{\int_{-1}^1 (1-t^2)^{n/2} \df t}_{=: I_{n}}.
+\]
+Ohne Beweis: $I_n = \frac{n}{n+1}I_{n-2}$. Daraus
+\[
+I_nI_{n-1} = \frac{n}{n+1}I_{n-1}I_{n-2} = \frac{2(n!)}{(n+1)(n!)} I_1 I_0 = \frac{4}{n+1}I_1.
+\]
+Da $I_1 = \frac{\pi}{2}$, ist $I_nI_{n-1} = \frac{2\pi}{n+1}$. Daraus
+\[
+ \textrm{vol}(K_{n+1}) = I_n\textrm{vol}(K_{n}) = I_nI_{n-1}\textrm{vol}(K_{n-1}) = \frac{2\pi}{n+1}\textrm{vol}(K_{n-1}).
+\]
+
+Falls $n = 2k$, dann $n+2 = 2(k+1)$. Mit der Induktionsannahme folgt
+\[
+ \textrm{vol}(K_{n+2}) = \frac{2\pi}{n+2}\textrm{vol}(K_n) = \frac{\pi}{k+1} \cdot \frac{\pi^k}{k!} = \frac{\pi^{k+1}}{(k+1)!}. 
+\]
+
+Falls $n = 2k+1$, dann $n+2 = 2k+3$. Mit der Induktionsannahme folgt
+\[
+  \textrm{vol}(K_{n+2}) = \frac{2\pi}{n+2}\textrm{vol}(K_n) = \frac{2\pi}{2k+3} \cdot \frac{2^{k+1}\pi^k}{(1\cdot 3 \cdot \dots \cdot (2k+1))} =
+  \frac{2^{k+2}\pi^{k+1}}{1 \cdot 3 \cdot \dots \cdot (2k+1)\cdot(2k+3)}.
+\]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 3}
+\begin{enumerate}[(a)]
+  \item Berechne das Volumen des 3d-Körpers, der durch
+        Rotation der Fläche
+        \[
+          \{(x, 0, z) \in \R^3 : x \in (0, 1], z \in [1, x^{-1}]\} \subset \R^3
+        \]
+        um die $z$-Achse entsteht.
+        
+  \textbf{Antwort.} Bezeichne den Körper, der so entsteht als $R'$.
+  Die Nullmenge $\{(0, 0, z) : z \in [1, \infty)\}$ können wir $R'$
+  noch hinzufügen, ohne sein Volumen zu ändern. Bezeiche das neue Objekt
+  mit $R$. Wir stellen fest, dass $R$ eine Überlagerung von Scheiben
+  mit Radius $z^{-1}$ ist, mit $z > 1$. Folglich
+  \[
+    \textrm{vol}(R) = \int_1^{\infty} \pi (z^{-1})^2 \df z = \pi \int_1^{\infty} z^{-2} = \pi.
+  \]
+        
+  \item Berechne das Integral
+  \[
+    \int_0^1 \int_x^1 \underbrace{y^2\sin\left(\frac{2\pi x}{y}\right)}_{=: f(x,y)} \df y \df x.
+  \]
+  
+  \textbf{Antwort.} Die Funktion $f$ wird beim Integrieren nur für 
+  $(x,y)$ im offenen Dreieck aufgespannt von den Eckpunkten 
+  $(0,0), (1, 0)$ und $(1, 1)$ ausgewertet. 
+  Fubini greift (stetige Funktionen, endliches Intervall als Integrationsbereich)
+  und wir können das Integral wie folgt umschreiben:
+    \[
+    \int_0^1 \int_x^1 y^2\sin\left(\frac{2\pi x}{y}\right) \df y \df x
+    = \int_0^1 y^2 \int_0^y \sin\left(\frac{2\pi x}{y}\right) \df x \df y.
+  \]
+  Wir bemerken, dass 
+  \[
+  \frac{\df}{\df x} \left(-\frac{y}{2\pi} \cos\left(\frac{2\pi x}{y}\right)\right)
+  = \sin\left(\frac{2\pi x}{y}\right).
+  \]
+  Also
+  \[
+    \int_0^y \sin\left(\frac{2\pi x}{y}\right)  = -\frac{y}{2\pi}(\cos(2\pi) - \cos(0)) = 0.
+  \]
+  Somit ist auch das gesuchte Integral gleich 0.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 4}
+Es sei $n \in \N$ und $\| \cdot \|$ die euklidische
+Norm auf $\R^n$. Beweise, dass
+\[
+  \int_{\R^n} \exp(-\|x\|^2) \df x = \pi^{n/2}.
+\]
+
+\begin{proof}
+  Wir setzen hier
+  $\int_{0}^{\infty} \exp(-x^2) \df x = \frac{\sqrt{\pi}}{2}$ als bekannt voraus
+  (oder \url{https://math.stackexchange.com/a/886561/830096}). 
+  Aus Symmetriegründen folgt die Behauptung für $n = 1$.
+
+  Per Induktion: Die Aussage gelte für $\R^n$. Betrachte nun $\R^{n+1}$
+  mit $x = (x_1, \dots, x_n, x_{n+1}) \in \R^{n+1}$. Bemerke, dass
+  $\exp(-\|x\|^2) > 0$ für alle $x$.
+  Also greift der Satz von Fubini:
+    \begin{align*}
+   \int_{\R^{n+1}} \exp(-\|x\|^2) \df x
+   &= \int_{\R}\left(\int_{\R^n} \exp(-(x_1^2+\dots+x_n^2) - x_{n+1}^2) \df (x_1, \dots x_n) \right) \df x_{n+1} \\
+   &= \int_{\R}\left(\int_{\R^n} \exp(-(x_1^2+\dots+x_n^2)) \exp(-x_{n+1}^2) \df (x_1, \dots x_n) \right) \df x_{n+1} \\
+   &= \int_{\R}\exp(-x_{n+1}^2)\underbrace{\left(\int_{\R^n} \exp(-\|(x_1, \dots, x_n)\|^2) \df (x_1, \dots, x_n)\right)}_{= \pi^{n/2}} \df x_{n+1} \\
+   &= \pi^{n/2} \int_{\R}\exp(-x_{n+1}^2) \df x_{n+1} \\
+   &= \pi^{n/2} \pi^{1/2} = \pi^{(n+1)/2}.\qedhere
+  \end{align*}
+\end{proof}
+\end{document}

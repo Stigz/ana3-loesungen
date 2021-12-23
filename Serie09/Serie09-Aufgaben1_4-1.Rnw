@@ -1,0 +1,386 @@
+\documentclass[10pt]{article}
+
+\title{Serie 9}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+\usepackage[normalem]{ulem}
+
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Beweis}
+\newtheorem*{lemma}{Lemma}
+
+
+\author{}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 1}
+Es seien $f, g: \R^n \to \R$ stetig und $\R^n$ mit dem Lebesgue-Mass
+versehen. Zeige:
+\begin{enumerate}[(a)]
+  \item Gilt $f = g$ fast überall, so ist $f = g$ überall.
+        
+        \begin{proof}
+        Insbesondere $f - g$ ist stetig und fast überall gleich
+        der Nullabbildung. Definiere
+        \[
+          A := (f-g)^{-1}((-\infty, 0)) \cup (f-g)^{-1}((0, \infty)).
+        \]
+        Da $f - g \equiv 0$ fast überall, gilt $m(A) = 0$.
+        Andererseits ist $A$ offen, da stetige Urbilder offener Mengen
+        dies sind. Die einzige offene Menge in $\R^n$ mit Mass 0
+        ist die Nullmenge: Sobald wir einen offenen Ball mit
+        positivem Radius in $A$ zeichnen können, hat $A$ positives Mass.
+        Also ist $f-g \equiv 0$ überall.
+        \end{proof}
+        
+  \item $\esssup f = \sup f.$
+        
+        \begin{proof}
+          Definiere
+          \[
+            M := \{a \in \R : f^{-1}((a, \infty)) = \emptyset \}
+          \]
+          und stelle fest, dass
+          \[
+            \sup f = 
+            \begin{cases}
+              \inf M, & M \neq \emptyset,\\
+              \infty, & M = \emptyset.
+            \end{cases}
+          \]
+          Definiere $S$ wie in Definition 6.4.
+          Ist $f$ stetig, so gilt mit der gleichen Logik wie 
+          unter 1(a), dass $m(f^{-1}((a, \infty))) = 0$
+          genau dann, wenn $f^{-1}((a, \infty)) = \emptyset$.
+          Also $M = S$ und damit die Behauptung.
+        \end{proof}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 2}
+Es sei $p \in [1, \infty]$. Für welche $r,s \in \R$ liegen folgende
+Funktionen in $\mathscr{L}_p(\R_+)$:
+\begin{enumerate}[(a)]
+  \item $f: \R_+ \to \R, f(x) = x^r$.
+  
+        {\bf Antwort.} $f$ ist klar stetig und positiv auf seinem Definitionsbereich.
+        
+        \uline{Fall 1: $p = \infty$:} Mit Aufgabe 1(b) gilt
+        \[
+          \|x^r\|_{\infty} := \esssup|x^r| = \sup x^r.
+        \]
+        Für $r > 0$, gilt $\lim_{x \to \infty} x^r = \infty$, also $\sup x^r = \infty$.
+        Für $r < 0$, gilt $\lim_{x \to 0}x^r = \infty$, also $\sup x^r = \infty$.
+        Für $r = 0$, gilt $\sup x^r = \sup x^0 = 1$. Also
+        \[
+          x^r \in \mathscr{L}_{\infty}(\R_+) \Leftrightarrow r = 0.
+        \]
+        
+        \uline{Fall 2: $p \in [1, \infty)$:}
+        Es reicht, zu überprüfen, ob $\int_{\R_+}x^{rp} \df m < \infty$.
+        
+        Für $rp = -1$ (d.h, $r = -1/p$) gilt
+        \[
+        \int_{\R_+} x^{-1} \df m = \ln(x)|^{\infty}_0 = \infty.
+        \]
+        
+        Für $rp > -1$ (d.h., $r > -1/p$):
+        \[
+          \int_{\R_+} x^{rp} \df m = \frac{1}{rp+1} x^{rp+1}|_0^{\infty} = \underbrace{\frac{1}{rp+1}}_{> 0} \lim_{x \to \infty} x^{rp+1} = \infty.
+        \]
+
+        Für $rp < -1$ (d.h., $r < -1/p$):
+        \[
+          \int_{\R_+} x^{rp} \df m = \frac{1}{rp+1} x^{rp+1}|_0^{\infty} = \underbrace{\frac{1}{rp+1}}_{< 0} \left(\underbrace{\lim_{x \to \infty} x^{rp+1}}_{= 0} - \underbrace{\lim_{x \to 0} x^{rp+1}}_{= \infty} \right) = \infty.
+        \]
+        
+        Also gilt für alle $p \neq \infty$, dass $x^r \notin \mathscr{L}_{p}(\R_+)$.
+  
+  \item $g: \R_+ \to \R, g(x) = \begin{cases}x^r, & 0 < x \leq 1,\\ x^s, & x > 1. \end{cases}$
+  
+        {\bf Antwort.} 
+        \uline{Fall 1: $p = \infty$:}
+        $1^r = 1 = 1^s$ für alle $s,r \in \R$, also ist $g$ stetig.
+        Damit $\esssup g = \sup g < \infty$, muss $r \geq 0, s \leq 0$.
+        
+        \uline{Fall 2: $p \in [1, \infty)$:}
+        Für $rp = -1$ gilt 
+        \[
+          \int_0^1 x^{-1} \df x = \lim_{t \to 0} \left(\ln(x)|^{1}_t\right) = \infty.
+        \]
+        Für $rp < -1$:
+        \[
+          \int_0^1 x^{rp} \df x = \frac{1}{rp+1} \lim_{t \to 0}\left((x^{rp+1})|^1_t\right) = \infty.
+        \]
+        Für $rp > -1$:
+        \[
+          \int_0^1 x^{rp} \df x = \frac{1}{rp+1} \left(x^{rp+1}\right)|^1_0 = \frac{1}{rp+1} < \infty.
+        \]
+        Also $\int_0^{1} x^{rp} \df x < \infty$
+        genau dann, wenn $rp > -1$, also für $r > -1/p$.
+        
+        Für $sp = -1$ gilt
+        \[
+          \int_1^{\infty} x^{-1} \df x = \lim_{t \to \infty} \left(\ln(x)|^{t}_1\right) = \infty.
+        \]
+        Für $sp > -1$:
+        \[
+          \int_1^{\infty} x^{sp} \df x = \frac{1}{sp+1} \lim_{t \to \infty}\left((x^{sp+1})|^t_1\right) = \infty.
+        \]
+        Für $sp < -1$:
+        \[
+          \int_1^{\infty} x^{sp} \df x = \frac{1}{sp+1} \lim_{t \to \infty}\left((x^{sp+1})|^t_1\right) = - \frac{1}{sp+1} < \infty.
+        \]
+        $\int_1^{\infty} x^{sp} \df x < \infty$
+        genau dann, wenn $sp < -1$, also für $s < -1/p$.
+        
+        Insgesamt $g \in \mathscr{L}_p(\R_+)$ genau dann,
+        wenn $r > -1/p, s < -1/p$.
+        
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 3}
+Es seien $0 < p_1 < p_2 < \infty$. Beweise:
+\begin{enumerate}[(a)]
+  \item Ist $(X, \mathfrak{M}, \mu)$ ein Massraum
+        mit $\mu(X) < \infty$, so gilt
+        $\mathscr{L}_{p_2}(\mu) \subset \mathscr{L}_{p_1}(\mu)$.
+        
+        \begin{proof}
+        Es gelte $f \in \mathscr{L}_{p_2}(\mu)$
+        Da $p_1 < p_2$, gilt $\frac{p_1}{p_2} + \frac{1}{r} = 1$ mit $r = \frac{p_2}{p_2-p_1} > 1$.
+        Mit Hölder folgt
+          \begin{align*}
+            \int_X |f|^{p_1} \df \mu
+            &= \int_X 1 |f|^{p_1} \df \mu \\
+            &\leq \left(\int_X 1^r \df \mu\right)^{1/r} \cdot \left(\int_X |f|^{p_1p_2/p_1} \df \mu \right)^{p_1/p_2} \\
+            &= (\mu(X))^{1/r} \cdot \left(\left(\int_X |f|^{p_2} \df \mu \right)^{1/p_2}\right)^{p_1}.
+          \end{align*}
+          Wegen $f \in \mathscr{L}_{p_2}(\mu)$ 
+          gilt $\left(\int_X |f|^{p_2} \df \mu \right)^{1/p_2} \in \R$,
+          also $\left(\left(\int_X |f|^{p_2} \df \mu \right)^{1/p_2}\right)^{p_1} \in \R$.
+          Nach Voraussetzung auch $\mu(X) < \infty$.
+          Insgesamt:
+          \[
+             \int_X |f|^{p_1} \df \mu < \infty.
+          \]
+          % Daraus
+          % \[
+          %    \left(\int_X |f|^{p_1} \df \mu\right)^{1/p_1} < \infty.
+          % \]
+          Also $f \in \mathscr{L}_{p_1}$.
+        \end{proof}
+        
+  \item Ist $X$ eine abzählbare (endliche oder unendliche)
+        Menge und $\mu$ das Zählmass auf $X$,
+        so gilt $\mathscr{L}_{p_1}(\mu) \subset \mathscr{L}_{p_2}(\mu)$.
+        Die Inklusion ist strikt, falls $X$ 
+        abzählbar unendlich ist.
+        
+        \begin{proof}
+          Wenn $f$ bzgl.\ des Zählmasses $\mu$ 
+          Lebesgue-integrierbar ist, gilt
+          \[
+            \int_X |f|^r \df \mu = \sum_{x \in X} (|f(x)|)^r,
+          \]
+          $r \in \R$.
+          Für $X$ endlich haben wir es mit einer endlichen,
+          also konvergenten, Summe zu tun, vorausgesetzt,
+          dass die Funktion nur endliche Werte annimmt.
+          Daher: 
+          \[
+            \sum_{x \in X} (|f(x)|)^{p_1} \df \mu < \infty 
+            \Rightarrow |f(X)| < \infty 
+            \Rightarrow \sum_{x \in X} (|f(x)|)^{p_2} \df \mu < \infty.
+          \]
+          
+          Im unendlichen Fall heisst
+          \[
+            \sum_{k=1}^{\infty} |f(x_k)|^{p_1} < \infty,
+          \]
+          dass diese Reihe absolut konvergiert. Also
+          dürfen wir die Summanden so umordnen, dass
+          $|f(x_k)|^{p_1} \geq |f(x_{k+1})|^{p_1}$ für alle $k \in \N$.
+          Wegen der Konvergenz muss weiter ein $N \in \N$
+          existieren, sodass $|f(x_k)|^{p_1} < 1$
+          für alle $k \geq N$. Da $p_2 > p_1$, gilt für solche
+          $k$ dann
+          $|f(x_k)|^{p_2} \leq  |f(x_k)|^{p_1}$. Also
+          \begin{align*}
+            \sum_{k=1}^{\infty} |f(x_k)|^{p_2}
+            &= \sum_{k=1}^{N-1} |f(x_k)|^{p_2} + \sum_{k=N}^{\infty} |f(x_k)|^{p_2}.
+          \end{align*}
+          Der erste Teil ist endlich, also konvergent;
+          der zweite Teil wird von der konvergenten
+          Reihe $\sum_{k=N}^{\infty} |f(x_k)|^{p_1}$
+          majorisiert und ist also auch konvergent.
+          Somit 
+          $\mathscr{L}_{p_1}(\mu) \subset \mathscr{L}_{p_2}(\mu)$.
+          
+          Betrachten wir jedoch zu vorgegebenem $p_1$
+          und $X = \{x_1, x_2, \dots\}$
+          die Abbildung
+          \begin{align*}
+            f:  X     &\to       \C,\\
+                x_k   &\mapsto   k^{-1/p_1},
+          \end{align*}
+          so stellen wir fest, dass für $p_2 > p_1$ gilt:
+          \[
+            \sum_{k=1}^{\infty} |f(x_k)|^{p_2} = \sum_{k=1}^{\infty} \frac{1}{k^{p_2/p_1}} < \infty,
+          \]
+          da $p_2/p_1 > 1$ (allgemeine harmonische Reihe).
+          Jedoch
+          \[
+            \sum_{k=1}^{\infty} |f(x_k)|^{p_1} = \sum_{k=1}^{\infty} \frac{1}{k},
+          \]
+          was gegen $\infty$ divergiert.
+          Also ist die obige Inklusion strikt.
+        \end{proof}
+        
+  \item Es sei $X = [0, \infty)$ versehen mit dem Lebesgue-Mass.
+        Es gilt sowohl $\mathscr{L}_{p_1}(X) \setminus \mathscr{L}_{p_2}(X) \neq \emptyset$ als auch
+        $\mathscr{L}_{p_2}(X) \setminus \mathscr{L}_{p_1}(X) \neq \emptyset$.
+        
+        \begin{proof}
+          Seien $0 < p_1 < p_2 < \infty$ vorgegeben.
+          Definiere die fallende Treppenfunktion $f: X \to \R$ durch
+          $f(x) = k^{-p_1}$ für $x \in [k-1, k), k = 1, 2, \dots$.
+          \footnote{Gemeint ist: $f(x) = \sum_{k=1}^{\infty} \frac{1}{k^{p_1}} \chi_{[k-1,k)}$.}
+          Dann 
+          \[
+            \int_X (f)^{p_1} \df m = 1 + \frac{1}{2} + \frac{1}{3} + \dots = \infty.
+          \]
+          Aber
+          \[
+            \int_X (f)^{p_2} \df m = 1 + \frac{1}{2^r} + \frac{1}{3^r} + \dots < \infty,
+          \]
+          da $r := p_2-p_1 > 1$ (allgemeine harmonische Reihe).
+          Also $f \in \mathscr{L}_{p_2}(X) \setminus \mathscr{L}_{p_1}(X)$.
+          
+          Definiere nun 
+          \begin{align*}
+            g: X  &\to      \R,\\
+               x  &\mapsto  
+                  \begin{cases}
+                    x^{-1/p_2},    & x \in (0, 1),\\
+                    0,            & \textrm{sonst}.
+                  \end{cases}
+          \end{align*}
+          Dann 
+          \[
+            \int_0^{\infty} (g(x))^{p_2} \df x = \int_0^{1} 1/x \df x = \infty,
+          \]
+          aber
+          \[
+            \int_0^{\infty} (g(x))^{p_1} \df x = \int_0^{1} x^{-p_1/p_2} \df x = \frac{p_2}{p_2-p_1} < \infty.
+          \]
+           Also $g \in \mathscr{L}_{p_1}(X) \setminus \mathscr{L}_{p_2}(X)$.
+        \end{proof}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 4}
+Es seien $a < b$ und $f: [a,b] \to \R$ Lebesgue-integrierbar.
+Zeige, dass die Funktion
+\begin{align*}
+  F: [a,b] &\to \R, \\
+  x &\mapsto \int_{[a,x]} f \df m,
+\end{align*}
+absolutstetig ist.
+
+\begin{proof}
+Sei $\varepsilon > 0$ vorgegeben.
+Da $|f| \in \mathscr{L}_1([a,b])$ und $|f| \geq 0$,
+existiert mit Aufgabe 3.4 ein $\delta > 0$, sodass für alle $A \in \mathfrak{M}$
+mit $m(A) < \delta$ gilt, dass $\int_A |f| \df m < \varepsilon$.
+Sei nun 
+$a \leq \alpha_1 < \beta_1 \leq \alpha_2 < \beta_2 \leq \dots \leq a_n < \beta_n \leq b$
+eine Partition von $[a,b]$ mit der Eigenschaft, dass
+$A := \bigsqcup_{j = 1}^n [\alpha_j, \beta_j]$, $m(A) < \delta$.
+Das heisst nichts anderes als $\sum_{j = 1}^{n} \beta_j - \alpha_j < \delta$.
+Man stellt nun fest:
+\begin{align*}
+  \sum_{j = 1}^n \left|\int_{[a, \beta_j]}f \df m - \int_{[a, \alpha_j]} f \df m\right|
+  &= \sum_{j = 1}^n \left|\int_{[\alpha_j, \beta_j]}f \df m\right| \\
+  &\leq \sum_{j = 1}^n \int_{[\alpha_j, \beta_j]}|f| \df m\\
+  &= \int_A |f| \df m < \varepsilon.\qedhere
+\end{align*}
+\end{proof}
+\end{document}

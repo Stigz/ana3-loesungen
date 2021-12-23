@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}
+
+\title{Serie 1, Aufgabe 3}
+\date{}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ngerman}
+\usepackage{hyphenat}
+\usepackage{natbib}
+
+% \usepackage[a4paper, top=3cm, bottom=3cm, left=2cm, right=7cm, marginparwidth = 5cm, marginparsep = 0.5cm]{geometry}
+
+% \usepackage[small, explicit]{titlesec}
+% \usepackage[normalem]{ulem}
+% \titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{\theparagraph}{1em}{#1}
+% \titleformat{\subparagraph}[runin]{\normalfont\normalsize}{\thesubparagraph}{1em}{\uline{#1}}
+% \titlespacing*{\subparagraph}{0pt}{1ex}{1em}
+
+
+% \usepackage{marginnote}
+% \renewcommand*{\marginfont}{\footnotesize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, arrows}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% \usepackage{tgpagella}
+% \usepackage[sc]{mathpazo}
+
+\renewcommand*{\proofname}{Beweis}
+\newtheorem*{lemma}{Lemma}
+
+
+% \author{Jan Vanhove\\10-219-186}
+% \date{\today}
+
+% \usepackage{booktabs}
+% \usepackage{fancyhdr}
+% \usepackage{lastpage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \makeatletter
+% \let\runauthor\@author
+% \let\runtitle\@title
+% \makeatother
+% \lhead{\runauthor}
+% \rhead{S.~\thepage~von \pageref{LastPage}\\\today}
+% \chead{\runtitle}
+
+\usepackage[shortlabels]{enumitem}
+
+% \usepackage{microtype}
+             
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\df}{\,\textrm{d}}
+\newcommand{\pr}{\,\textrm{pr}}
+
+% \newcommand*{\QED}[1][$\square$]{%
+% \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+%     \quad\hbox{#1}%
+% }
+                                
+\hyphenation{Äqui-valenz-re-la-tion Äqui-va-lenz-klasse Prim-faktor-zer-legung 
+Prim-faktor-zer-legungen unter-schied-lich-en sur-jek-tiv Po-tenzen 
+unter-schied-liche In-duk-tions-an-nahme Differential-gleichung}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+Es sei $f: \R \to \R$ monoton. Zeige, dass $f$ messbar ist.
+
+\begin{proof}
+Wir gehen o.B.d.A.\ von einer monoton wachsenden Funktion aus.
+Die euklidische Topologie auf $\R$ setzt sich zusammen aus 
+offenen Intervallen der Form $(a,b), a < b$.
+Es reicht also, zu zeigen, dass Urbilder offener Intervalle
+unter $f$ offen sind.
+Sei dazu ein $(a, b) \subset \R$ vorgegeben.
+Definiere 
+\[p = \sup\{x \in \R: f(x) \leq a\}\]
+und
+\[q = \inf\{x \in \R: f(x) \geq b\}.\]
+Wegen der Monotonie von $f$, gilt $p \leq q$.
+Weiter gilt (nur) für alle $t \in (p, q): f(p) \leq a < f(t) < b \leq f(q)$,
+also ist $f^{-1}((a,b)) = (p,q)$, somit offen.
+Falls $f^{-1}((a,b))$ leer ist oder die Form $(-\infty,q),(-\infty,\infty),(p, \infty)$ hat, ist $f^{-1}((a,b))$ ebenfalls offen.
+Also ist $f$ messbar.
+\end{proof}
+\end{document}
